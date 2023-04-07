@@ -4,6 +4,9 @@
  */
 package parkpal;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author PC
@@ -20,31 +23,140 @@ public class welcome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         HomePagePanel = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        ParkPalHeader = new javax.swing.JLabel();
+        UserNameLabel = new javax.swing.JLabel();
+        PasswordLabel = new javax.swing.JLabel();
+        ParkPalLogo = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        LogInButton = new javax.swing.JButton();
+        HomePageImage = new javax.swing.JLabel();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 700));
         setName("HomePageFrame"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
 
         HomePagePanel.setBackground(new java.awt.Color(255, 255, 255));
+        HomePagePanel.setForeground(new java.awt.Color(255, 255, 255));
+        HomePagePanel.setPreferredSize(new java.awt.Dimension(1280, 740));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
         kGradientPanel1.setkGradientFocus(300);
         kGradientPanel1.setkStartColor(new java.awt.Color(94, 114, 235));
 
+        ParkPalHeader.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
+        ParkPalHeader.setForeground(new java.awt.Color(255, 255, 255));
+        ParkPalHeader.setText("Parkpal");
+        ParkPalHeader.setToolTipText("");
+        ParkPalHeader.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ParkPalHeader.setIconTextGap(6);
+        ParkPalHeader.setMinimumSize(new java.awt.Dimension(100, 100));
+        ParkPalHeader.setPreferredSize(new java.awt.Dimension(100, 19));
+
+        UserNameLabel.setFont(new java.awt.Font("Poppins Light", 1, 12)); // NOI18N
+        UserNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        UserNameLabel.setText("Username");
+
+        PasswordLabel.setFont(new java.awt.Font("Poppins Light", 1, 12)); // NOI18N
+        PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
+        PasswordLabel.setText("Password");
+
+        ParkPalLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo7.png"))); // NOI18N
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(102, 0, 102));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField1.setText("Username");
+        jTextField1.setToolTipText("");
+        jTextField1.setAutoscrolls(false);
+        jTextField1.setBorder(null);
+        jTextField1.setMargin(new java.awt.Insets(2, 10, 2, 6));
+
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(102, 0, 102));
+        jPasswordField1.setText("Password");
+        jPasswordField1.setToolTipText("");
+        jPasswordField1.setBorder(null);
+
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setText("Show Password");
+        jCheckBox1.setBorder(null);
+        jCheckBox1.setContentAreaFilled(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        LogInButton.setBackground(new java.awt.Color(255, 255, 255));
+        LogInButton.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
+        LogInButton.setForeground(new java.awt.Color(255, 255, 255));
+        LogInButton.setText("LOG-IN");
+        LogInButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        LogInButton.setContentAreaFilled(false);
+        LogInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogInButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField1)
+                    .addComponent(UserNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(ParkPalLogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ParkPalHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                    .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ParkPalLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addComponent(ParkPalHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)))
+                .addGap(53, 53, 53)
+                .addComponent(UserNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(PasswordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox1)
+                .addGap(18, 18, 18)
+                .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
+
+        HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
 
         javax.swing.GroupLayout HomePagePanelLayout = new javax.swing.GroupLayout(HomePagePanel);
         HomePagePanel.setLayout(HomePagePanelLayout);
@@ -52,26 +164,42 @@ public class welcome extends javax.swing.JFrame {
             HomePagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePagePanelLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         HomePagePanelLayout.setVerticalGroup(
             HomePagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(HomePagePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HomePagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(HomePagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HomePagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(HomePagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogInButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +242,17 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel HomePageImage;
     private javax.swing.JPanel HomePagePanel;
+    private javax.swing.JButton LogInButton;
+    private javax.swing.JLabel ParkPalHeader;
+    private javax.swing.JLabel ParkPalLogo;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JLabel UserNameLabel;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }
