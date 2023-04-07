@@ -47,6 +47,7 @@ public class welcome extends javax.swing.JFrame {
 
         HomePagePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePagePanel.setForeground(new java.awt.Color(255, 255, 255));
+        HomePagePanel.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         HomePagePanel.setPreferredSize(new java.awt.Dimension(1280, 740));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
@@ -157,6 +158,7 @@ public class welcome extends javax.swing.JFrame {
         );
 
         HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
+        HomePageImage.setOpaque(true);
 
         javax.swing.GroupLayout HomePagePanelLayout = new javax.swing.GroupLayout(HomePagePanel);
         HomePagePanel.setLayout(HomePagePanelLayout);
@@ -213,7 +215,8 @@ public class welcome extends javax.swing.JFrame {
         
         JFrame welcome = new JFrame();
         JPanel HomePagePanel = new JPanel();
-        
+        welcome.add(HomePagePanel);
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -255,4 +258,5 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
+
 }
