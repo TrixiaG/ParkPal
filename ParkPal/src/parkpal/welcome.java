@@ -65,7 +65,7 @@ public class welcome extends javax.swing.JFrame {
 
         ParkPalHeader.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
         ParkPalHeader.setForeground(new java.awt.Color(255, 255, 255));
-        ParkPalHeader.setText("Parkpal");
+        ParkPalHeader.setText("ParkPal");
         ParkPalHeader.setToolTipText("");
         ParkPalHeader.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ParkPalHeader.setIconTextGap(6);
@@ -88,7 +88,7 @@ public class welcome extends javax.swing.JFrame {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setToolTipText("");
         jTextField1.setAutoscrolls(false);
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -99,7 +99,7 @@ public class welcome extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 0, 102));
         jPasswordField1.setToolTipText("");
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        jPasswordField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
