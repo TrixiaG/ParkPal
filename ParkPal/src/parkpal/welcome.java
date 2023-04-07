@@ -13,6 +13,9 @@ import javax.swing.JPanel;
  */
 public class welcome extends javax.swing.JFrame {
     
+    public welcome() {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -24,6 +27,7 @@ public class welcome extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         HomePagePanel = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         ParkPalHeader = new javax.swing.JLabel();
@@ -38,7 +42,12 @@ public class welcome extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Parkpal");
+        setBackground(new java.awt.Color(94, 114, 235));
+        setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         setMaximumSize(new java.awt.Dimension(1280, 700));
         setName("HomePageFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
@@ -77,18 +86,20 @@ public class welcome extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(102, 0, 102));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setText("Username");
         jTextField1.setToolTipText("");
         jTextField1.setAutoscrolls(false);
-        jTextField1.setBorder(null);
-        jTextField1.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(102, 0, 102));
-        jPasswordField1.setText("Password");
         jPasswordField1.setToolTipText("");
-        jPasswordField1.setBorder(null);
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 10));
 
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
@@ -114,6 +125,9 @@ public class welcome extends javax.swing.JFrame {
             }
         });
 
+        HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
+        HomePageImage.setOpaque(true);
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -131,7 +145,8 @@ public class welcome extends javax.swing.JFrame {
                     .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LogInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,11 +169,9 @@ public class welcome extends javax.swing.JFrame {
                 .addComponent(jCheckBox1)
                 .addGap(18, 18, 18)
                 .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(HomePageImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
-
-        HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
-        HomePageImage.setOpaque(true);
 
         javax.swing.GroupLayout HomePagePanelLayout = new javax.swing.GroupLayout(HomePagePanel);
         HomePagePanel.setLayout(HomePagePanelLayout);
@@ -166,17 +179,11 @@ public class welcome extends javax.swing.JFrame {
             HomePagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomePagePanelLayout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HomePagePanelLayout.setVerticalGroup(
             HomePagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(HomePagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,6 +210,10 @@ public class welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogInButtonActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,7 +226,10 @@ public class welcome extends javax.swing.JFrame {
         
         JFrame welcome = new JFrame();
         JPanel HomePagePanel = new JPanel();
+        welcome.setVisible(true);
         welcome.add(HomePagePanel);
+        HomePagePanel.setVisible(true);
+        
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -240,6 +254,7 @@ public class welcome extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new welcome().setVisible(true);
+                
             }
         });
     }
@@ -253,6 +268,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JLabel UserNameLabel;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
