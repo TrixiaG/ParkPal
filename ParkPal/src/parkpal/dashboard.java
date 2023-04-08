@@ -40,11 +40,6 @@ public class dashboard extends javax.swing.JFrame {
         BtnAvailableParking = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         DashboardTab = new javax.swing.JTabbedPane();
-        AddCusPanel = new javax.swing.JPanel();
-        DashboardLine1 = new keeptoo.KGradientPanel();
-        DashboardLabel1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         AvailParkingPanel = new javax.swing.JPanel();
         DashboardLine2 = new keeptoo.KGradientPanel();
         DashboardLabel2 = new javax.swing.JLabel();
@@ -53,6 +48,10 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        AddCusPanel = new javax.swing.JPanel();
+        DashboardLine1 = new keeptoo.KGradientPanel();
+        DashboardLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -192,63 +191,6 @@ public class dashboard extends javax.swing.JFrame {
 
         DashboardTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        AddCusPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        DashboardLine1.setkEndColor(new java.awt.Color(255, 145, 144));
-        DashboardLine1.setkStartColor(new java.awt.Color(94, 114, 235));
-
-        javax.swing.GroupLayout DashboardLine1Layout = new javax.swing.GroupLayout(DashboardLine1);
-        DashboardLine1.setLayout(DashboardLine1Layout);
-        DashboardLine1Layout.setHorizontalGroup(
-            DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
-        );
-        DashboardLine1Layout.setVerticalGroup(
-            DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
-
-        DashboardLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
-        DashboardLabel1.setText("Add Customer");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Tite");
-
-        jLabel2.setText("Customer Name");
-
-        javax.swing.GroupLayout AddCusPanelLayout = new javax.swing.GroupLayout(AddCusPanel);
-        AddCusPanel.setLayout(AddCusPanelLayout);
-        AddCusPanelLayout.setHorizontalGroup(
-            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        AddCusPanelLayout.setVerticalGroup(
-            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(239, 239, 239)
-                .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
-        );
-
-        DashboardTab.addTab("tab1", AddCusPanel);
-
         AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         DashboardLine2.setkEndColor(new java.awt.Color(255, 145, 144));
@@ -350,6 +292,54 @@ public class dashboard extends javax.swing.JFrame {
 
         DashboardTab.addTab("tab3", Dashboardpanel);
 
+        AddCusPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        DashboardLine1.setkEndColor(new java.awt.Color(255, 145, 144));
+        DashboardLine1.setkStartColor(new java.awt.Color(94, 114, 235));
+
+        javax.swing.GroupLayout DashboardLine1Layout = new javax.swing.GroupLayout(DashboardLine1);
+        DashboardLine1.setLayout(DashboardLine1Layout);
+        DashboardLine1Layout.setHorizontalGroup(
+            DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 853, Short.MAX_VALUE)
+        );
+        DashboardLine1Layout.setVerticalGroup(
+            DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
+        );
+
+        DashboardLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
+        DashboardLabel1.setText("Add Customer");
+
+        jLabel2.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jLabel2.setText("Given Name:");
+
+        javax.swing.GroupLayout AddCusPanelLayout = new javax.swing.GroupLayout(AddCusPanel);
+        AddCusPanel.setLayout(AddCusPanelLayout);
+        AddCusPanelLayout.setHorizontalGroup(
+            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddCusPanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        AddCusPanelLayout.setVerticalGroup(
+            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddCusPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(565, Short.MAX_VALUE))
+        );
+
+        DashboardTab.addTab("tab1", AddCusPanel);
+
         jPanel1.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, -38, 900, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -441,7 +431,6 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
