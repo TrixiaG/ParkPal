@@ -236,7 +236,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DashboardLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DashboardLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         AvailParkingPanelLayout.setVerticalGroup(
             AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +245,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addComponent(DashboardLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DashboardLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(613, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
         );
 
         DashboardTab.addTab("tab2", AvailParkingPanel);
@@ -293,7 +293,7 @@ public class dashboard extends javax.swing.JFrame {
                     .addComponent(DashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DashboardLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         DashboardpanelLayout.setVerticalGroup(
             DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +304,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addComponent(DashboardLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         DashboardTab.addTab("tab3", Dashboardpanel);
@@ -351,8 +351,11 @@ public class dashboard extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel6.setText("PWD Member or Senior Citizen:");
 
+        vtype.setBackground(new java.awt.Color(98, 103, 235));
         vtype.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        vtype.setForeground(new java.awt.Color(255, 255, 255));
         vtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Motorcycle", "4 Wheeler Car" }));
+        vtype.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel7.setText("Vehicle Type:");
