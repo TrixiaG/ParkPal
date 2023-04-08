@@ -39,9 +39,9 @@ public class dashboard extends javax.swing.JFrame {
         BtnAvailableParking = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         DashboardTab = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        AddCustomerPanel = new javax.swing.JPanel();
+        AvailParkingPanel = new javax.swing.JPanel();
+        Dashboardpanel = new javax.swing.JPanel();
         DashboardLabel = new javax.swing.JLabel();
         DashboardLine = new keeptoo.KGradientPanel();
 
@@ -183,37 +183,37 @@ public class dashboard extends javax.swing.JFrame {
 
         DashboardTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        AddCustomerPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout AddCustomerPanelLayout = new javax.swing.GroupLayout(AddCustomerPanel);
+        AddCustomerPanel.setLayout(AddCustomerPanelLayout);
+        AddCustomerPanelLayout.setHorizontalGroup(
+            AddCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        AddCustomerPanelLayout.setVerticalGroup(
+            AddCustomerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 729, Short.MAX_VALUE)
         );
 
-        DashboardTab.addTab("tab1", jPanel2);
+        DashboardTab.addTab("tab1", AddCustomerPanel);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout AvailParkingPanelLayout = new javax.swing.GroupLayout(AvailParkingPanel);
+        AvailParkingPanel.setLayout(AvailParkingPanelLayout);
+        AvailParkingPanelLayout.setHorizontalGroup(
+            AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        AvailParkingPanelLayout.setVerticalGroup(
+            AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 729, Short.MAX_VALUE)
         );
 
-        DashboardTab.addTab("tab2", jPanel3);
+        DashboardTab.addTab("tab2", AvailParkingPanel);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        Dashboardpanel.setBackground(new java.awt.Color(255, 255, 255));
 
         DashboardLabel.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
         DashboardLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -233,20 +233,20 @@ public class dashboard extends javax.swing.JFrame {
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout DashboardpanelLayout = new javax.swing.GroupLayout(Dashboardpanel);
+        Dashboardpanel.setLayout(DashboardpanelLayout);
+        DashboardpanelLayout.setHorizontalGroup(
+            DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashboardpanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DashboardLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        DashboardpanelLayout.setVerticalGroup(
+            DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashboardpanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(DashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -254,7 +254,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addContainerGap(613, Short.MAX_VALUE))
         );
 
-        DashboardTab.addTab("tab3", jPanel4);
+        DashboardTab.addTab("tab3", Dashboardpanel);
 
         jPanel1.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, -38, 900, 760));
 
@@ -287,7 +287,7 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAvailableParkingActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void BtnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDashboardMouseClicked
@@ -329,6 +329,8 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AddCustomerPanel;
+    private javax.swing.JPanel AvailParkingPanel;
     private javax.swing.JButton BtnAddCustomer;
     private javax.swing.JButton BtnAvailableParking;
     private javax.swing.JButton BtnDashboard;
@@ -336,12 +338,10 @@ public class dashboard extends javax.swing.JFrame {
     private keeptoo.KGradientPanel DashboardLine;
     private javax.swing.JLabel DashboardLogo;
     private javax.swing.JTabbedPane DashboardTab;
+    private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
