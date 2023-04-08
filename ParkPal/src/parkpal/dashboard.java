@@ -138,7 +138,6 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setBackground(new java.awt.Color(255, 255, 255));
         ExitButton.setFont(new java.awt.Font("Poppins Medium", 1, 24)); // NOI18N
         ExitButton.setForeground(new java.awt.Color(255, 255, 255));
         ExitButton.setText("E X I T");
@@ -277,7 +276,6 @@ public class dashboard extends javax.swing.JFrame {
         Dashboardpanel.setBackground(new java.awt.Color(255, 255, 255));
 
         DashboardLabel.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
-        DashboardLabel.setForeground(new java.awt.Color(0, 0, 0));
         DashboardLabel.setText("Dashboard");
 
         DashboardLine.setkEndColor(new java.awt.Color(255, 145, 144));
@@ -387,6 +385,7 @@ public class dashboard extends javax.swing.JFrame {
                 new dashboard().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
