@@ -4,7 +4,9 @@
  */
 package parkpal;
 
+import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -15,6 +17,7 @@ public class welcome extends javax.swing.JFrame {
     
     public welcome() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -34,9 +37,9 @@ public class welcome extends javax.swing.JFrame {
         UserNameLabel = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
         ParkPalLogo = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        usernameTxtField = new javax.swing.JTextField();
+        passwordPwField = new javax.swing.JPasswordField();
+        ShowPasswordCheckbox = new javax.swing.JCheckBox();
         LogInButton = new javax.swing.JButton();
         HomePageImage = new javax.swing.JLabel();
 
@@ -82,34 +85,34 @@ public class welcome extends javax.swing.JFrame {
 
         ParkPalLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo7.png"))); // NOI18N
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 0, 102));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setToolTipText("");
-        jTextField1.setAutoscrolls(false);
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        usernameTxtField.setBackground(new java.awt.Color(255, 255, 255));
+        usernameTxtField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        usernameTxtField.setForeground(new java.awt.Color(102, 0, 102));
+        usernameTxtField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        usernameTxtField.setToolTipText("");
+        usernameTxtField.setAutoscrolls(false);
+        usernameTxtField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        usernameTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                usernameTxtFieldActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(102, 0, 102));
-        jPasswordField1.setToolTipText("");
-        jPasswordField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        passwordPwField.setBackground(new java.awt.Color(255, 255, 255));
+        passwordPwField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        passwordPwField.setForeground(new java.awt.Color(102, 0, 102));
+        passwordPwField.setToolTipText("");
+        passwordPwField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Show Password");
-        jCheckBox1.setBorder(null);
-        jCheckBox1.setContentAreaFilled(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        ShowPasswordCheckbox.setBackground(new java.awt.Color(255, 255, 255));
+        ShowPasswordCheckbox.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
+        ShowPasswordCheckbox.setForeground(new java.awt.Color(255, 255, 255));
+        ShowPasswordCheckbox.setText("Show Password");
+        ShowPasswordCheckbox.setBorder(null);
+        ShowPasswordCheckbox.setContentAreaFilled(false);
+        ShowPasswordCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                ShowPasswordCheckboxActionPerformed(evt);
             }
         });
 
@@ -135,15 +138,15 @@ public class welcome extends javax.swing.JFrame {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField1)
+                    .addComponent(passwordPwField)
                     .addComponent(UserNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(ParkPalLogo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ParkPalHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                    .addComponent(usernameTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                     .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowPasswordCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LogInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,13 +163,13 @@ public class welcome extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(UserNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordPwField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
+                .addComponent(ShowPasswordCheckbox)
                 .addGap(18, 18, 18)
                 .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -202,17 +205,37 @@ public class welcome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void ShowPasswordCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPasswordCheckboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+        if(ShowPasswordCheckbox.isSelected()){
+            passwordPwField.setEchoChar((char)0);
+        } else {
+            passwordPwField.setEchoChar(('*'));
+        }
+    }//GEN-LAST:event_ShowPasswordCheckboxActionPerformed
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
+        
+        if(usernameTxtField.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter  username!") ;
+        } else if (Arrays.equals(passwordPwField.getPassword(), new char[]{})) {
+            JOptionPane.showMessageDialog(null,"Please enter password!");
+        } else if(!usernameTxtField.getText().equals("AdminA")){
+            JOptionPane.showMessageDialog(null, "Incorrect username. Please try again.", "Incorrect Username", JOptionPane.ERROR_MESSAGE);
+        } else if (!Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'})){
+            JOptionPane.showMessageDialog(null,"Incorrect password. Please try again.", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
+        } else if (Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'}) && usernameTxtField.getText().equals("AdminA")){
+               dashboard dboard = new dashboard();
+               dboard.setVisible(true);
+               dboard.pack();
+               this.dispose();
+        }
     }//GEN-LAST:event_LogInButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void usernameTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTxtFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_usernameTxtFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,13 +289,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel ParkPalHeader;
     private javax.swing.JLabel ParkPalLogo;
     private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JCheckBox ShowPasswordCheckbox;
     private javax.swing.JLabel UserNameLabel;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JPasswordField passwordPwField;
+    private javax.swing.JTextField usernameTxtField;
     // End of variables declaration//GEN-END:variables
 
 }
