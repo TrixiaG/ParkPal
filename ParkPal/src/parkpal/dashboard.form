@@ -38,6 +38,10 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="rb_one">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="rb_two">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -474,48 +478,65 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="DashboardLine1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="DashboardLabel1" min="-2" pref="492" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
+                                  <Component id="fname" min="-2" pref="417" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                              <Component id="lname" min="-2" pref="417" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
+                                          <Component id="lname" min="-2" pref="417" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                              <Component id="fname" min="-2" pref="417" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
+                                                  <Component id="r1" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="r2" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                              <Component id="mnum" min="-2" pref="417" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="pnum" min="-2" pref="417" max="-2" attributes="0"/>
+                                                      <Component id="mnum" min="-2" pref="417" max="-2" attributes="0"/>
+                                                      <Component id="vtype" alignment="0" min="-2" pref="417" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="pnum" max="32767" attributes="0"/>
-                                          <Component id="vtype" min="-2" pref="417" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
+                                          <Component id="p1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="p2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="DashboardLine1" min="-2" max="-2" attributes="0"/>
+                              <Component id="DashboardLabel1" min="-2" pref="492" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -531,7 +552,7 @@
                               <Component id="jLabel2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="fname" alignment="3" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="lname" alignment="3" max="32767" attributes="0"/>
@@ -552,8 +573,18 @@
                               <Component id="jLabel7" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" pref="36" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="r1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="r2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel8" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="p1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="p2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -681,6 +712,58 @@
                       <Font name="Poppins Medium" size="20" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Vehicle Type:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="r1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rb_one"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Poppins Medium" size="20" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Yes"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="r2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rb_one"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Poppins Medium" size="20" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="No"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="p2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rb_two"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Poppins Medium" size="20" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="No"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="p1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rb_two"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Poppins Medium" size="20" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Yes"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel8">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Poppins Medium" size="20" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Any PWDs or senior citizens in your family?"/>
                   </Properties>
                 </Component>
               </SubComponents>
