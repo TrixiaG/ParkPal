@@ -85,7 +85,6 @@ public class welcome extends javax.swing.JFrame {
 
         ParkPalLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo7.png"))); // NOI18N
 
-        usernameTxtField.setBackground(new java.awt.Color(255, 255, 255));
         usernameTxtField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         usernameTxtField.setForeground(new java.awt.Color(102, 0, 102));
         usernameTxtField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -98,7 +97,6 @@ public class welcome extends javax.swing.JFrame {
             }
         });
 
-        passwordPwField.setBackground(new java.awt.Color(255, 255, 255));
         passwordPwField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         passwordPwField.setForeground(new java.awt.Color(102, 0, 102));
         passwordPwField.setToolTipText("");
@@ -116,7 +114,6 @@ public class welcome extends javax.swing.JFrame {
             }
         });
 
-        LogInButton.setBackground(new java.awt.Color(255, 255, 255));
         LogInButton.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         LogInButton.setForeground(new java.awt.Color(255, 255, 255));
         LogInButton.setText("LOG-IN");
