@@ -3,20 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package parkpal;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.Color;
 /**
  *
  * @author PC
  */
 public class dashboard extends javax.swing.JFrame {
-
+    private static final int CORNER_RADIUS = 30;
     /**
      * Creates new form dashboard
      */
     public dashboard() {
         initComponents();
         setLocationRelativeTo(null);
-        DashboardTab.setSelectedIndex(2);
+        DashboardTab.setSelectedIndex(0);
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
+    }
+    @Override
+    public void paint(Graphics g) {
+        // Paint the JFrame
+        super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.draw(getShape());
     }
 
     /**
@@ -42,14 +53,9 @@ public class dashboard extends javax.swing.JFrame {
         BtnAvailableParking = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         DashboardTab = new javax.swing.JTabbedPane();
-        AvailParkingPanel = new javax.swing.JPanel();
-        DashboardLine2 = new keeptoo.KGradientPanel();
-        DashboardLabel2 = new javax.swing.JLabel();
         Dashboardpanel = new javax.swing.JPanel();
         DashboardLabel = new javax.swing.JLabel();
         DashboardLine = new keeptoo.KGradientPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -69,6 +75,9 @@ public class dashboard extends javax.swing.JFrame {
         p2 = new javax.swing.JRadioButton();
         p1 = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
+        AvailParkingPanel = new javax.swing.JPanel();
+        DashboardLine2 = new keeptoo.KGradientPanel();
+        DashboardLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -93,8 +102,10 @@ public class dashboard extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1280, 730));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,12 +114,14 @@ public class dashboard extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
         kGradientPanel1.setkGradientFocus(300);
         kGradientPanel1.setkStartColor(new java.awt.Color(94, 114, 235));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DashboardLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo9.png"))); // NOI18N
         DashboardLogo.setToolTipText("");
+        kGradientPanel1.add(DashboardLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 29, -1, -1));
 
         BtnDashboard.setBackground(new java.awt.Color(98, 103, 235));
-        BtnDashboard.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        BtnDashboard.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
         BtnDashboard.setForeground(new java.awt.Color(255, 255, 255));
         BtnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/dashboard.png"))); // NOI18N
         BtnDashboard.setText("       DASHBOARD");
@@ -120,15 +133,22 @@ public class dashboard extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnDashboardMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnDashboardMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnDashboardMouseExited(evt);
+            }
         });
         BtnDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnDashboardActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(BtnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 249, 255, 46));
 
         BtnAddCustomer.setBackground(new java.awt.Color(98, 103, 235));
-        BtnAddCustomer.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        BtnAddCustomer.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
         BtnAddCustomer.setForeground(new java.awt.Color(255, 255, 255));
         BtnAddCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/viewparking.png"))); // NOI18N
         BtnAddCustomer.setText("       AVAILABLE PARKING");
@@ -137,14 +157,23 @@ public class dashboard extends javax.swing.JFrame {
         BtnAddCustomer.setContentAreaFilled(false);
         BtnAddCustomer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnAddCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnAddCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnAddCustomerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnAddCustomerMouseExited(evt);
+            }
+        });
         BtnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddCustomerActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(BtnAddCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 377, 255, 46));
 
         BtnAvailableParking.setBackground(new java.awt.Color(98, 103, 235));
-        BtnAvailableParking.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        BtnAvailableParking.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
         BtnAvailableParking.setForeground(new java.awt.Color(255, 255, 255));
         BtnAvailableParking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/button/addcustomer.png"))); // NOI18N
         BtnAvailableParking.setText("       ADD CUSTOMER");
@@ -153,11 +182,20 @@ public class dashboard extends javax.swing.JFrame {
         BtnAvailableParking.setContentAreaFilled(false);
         BtnAvailableParking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnAvailableParking.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnAvailableParking.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnAvailableParkingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnAvailableParkingMouseExited(evt);
+            }
+        });
         BtnAvailableParking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvailableParkingActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(BtnAvailableParking, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 313, 255, 46));
 
         ExitButton.setFont(new java.awt.Font("Poppins Medium", 1, 24)); // NOI18N
         ExitButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,91 +207,20 @@ public class dashboard extends javax.swing.JFrame {
                 ExitButtonActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 472, 255, 62));
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BtnAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                            .addComponent(BtnAvailableParking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(DashboardLogo)))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(DashboardLogo)
-                .addGap(121, 121, 121)
-                .addComponent(BtnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnAvailableParking, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 730));
 
         DashboardTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        DashboardLine2.setkEndColor(new java.awt.Color(255, 145, 144));
-        DashboardLine2.setkStartColor(new java.awt.Color(94, 114, 235));
-
-        javax.swing.GroupLayout DashboardLine2Layout = new javax.swing.GroupLayout(DashboardLine2);
-        DashboardLine2.setLayout(DashboardLine2Layout);
-        DashboardLine2Layout.setHorizontalGroup(
-            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
-        );
-        DashboardLine2Layout.setVerticalGroup(
-            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
-
-        DashboardLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
-        DashboardLabel2.setText("Available Parking");
-
-        javax.swing.GroupLayout AvailParkingPanelLayout = new javax.swing.GroupLayout(AvailParkingPanel);
-        AvailParkingPanel.setLayout(AvailParkingPanelLayout);
-        AvailParkingPanelLayout.setHorizontalGroup(
-            AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AvailParkingPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DashboardLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DashboardLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-        AvailParkingPanelLayout.setVerticalGroup(
-            AvailParkingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AvailParkingPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(DashboardLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DashboardLine2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(618, Short.MAX_VALUE))
-        );
-
-        DashboardTab.addTab("tab2", AvailParkingPanel);
-
         Dashboardpanel.setBackground(new java.awt.Color(255, 255, 255));
+        Dashboardpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        DashboardLabel.setBackground(new java.awt.Color(255, 255, 255));
         DashboardLabel.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
+        DashboardLabel.setForeground(new java.awt.Color(153, 153, 153));
         DashboardLabel.setText("Dashboard");
+        Dashboardpanel.add(DashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 352, 82));
 
         DashboardLine.setkEndColor(new java.awt.Color(255, 145, 144));
         DashboardLine.setkStartColor(new java.awt.Color(94, 114, 235));
@@ -262,54 +229,19 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine.setLayout(DashboardLineLayout);
         DashboardLineLayout.setHorizontalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         DashboardLineLayout.setVerticalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout DashboardpanelLayout = new javax.swing.GroupLayout(Dashboardpanel);
-        Dashboardpanel.setLayout(DashboardpanelLayout);
-        DashboardpanelLayout.setHorizontalGroup(
-            DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashboardpanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DashboardLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(92, Short.MAX_VALUE))
-        );
-        DashboardpanelLayout.setVerticalGroup(
-            DashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashboardpanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(DashboardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DashboardLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        Dashboardpanel.add(DashboardLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
 
         DashboardTab.addTab("tab3", Dashboardpanel);
 
         AddCusPanel.setBackground(new java.awt.Color(255, 255, 255));
+        AddCusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DashboardLine1.setkEndColor(new java.awt.Color(255, 145, 144));
         DashboardLine1.setkStartColor(new java.awt.Color(94, 114, 235));
@@ -318,188 +250,134 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine1.setLayout(DashboardLine1Layout);
         DashboardLine1Layout.setHorizontalGroup(
             DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         DashboardLine1Layout.setVerticalGroup(
             DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
+        AddCusPanel.add(DashboardLine1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
+
         DashboardLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
+        DashboardLabel1.setForeground(new java.awt.Color(153, 153, 153));
         DashboardLabel1.setText("Add Customer");
+        AddCusPanel.add(DashboardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 492, 82));
 
         jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel2.setText("Given Name:");
+        AddCusPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 162, -1, 36));
 
         fname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        AddCusPanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 162, 417, -1));
 
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel3.setText("Last Name:");
+        AddCusPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 221, -1, 36));
 
         lname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        AddCusPanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 221, 417, -1));
 
         jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel4.setText("Mobile Number:");
+        AddCusPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 275, -1, 36));
 
         mnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        AddCusPanel.add(mnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 275, 417, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel5.setText("Plate Number:");
+        AddCusPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 329, -1, 36));
 
         pnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        AddCusPanel.add(pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 329, 417, -1));
 
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel6.setText("PWD Member or Senior Citizen:");
+        AddCusPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 437, -1, 36));
 
         vtype.setBackground(new java.awt.Color(98, 103, 235));
         vtype.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         vtype.setForeground(new java.awt.Color(255, 255, 255));
         vtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Motorcycle", "4 Wheeler Car" }));
         vtype.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        AddCusPanel.add(vtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 383, 417, -1));
 
         jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel7.setText("Vehicle Type:");
+        AddCusPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 383, -1, 36));
 
         rb_one.add(r1);
         r1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r1.setText("Yes");
+        r1.setBorderPainted(true);
+        AddCusPanel.add(r1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 438, -1, -1));
 
         rb_one.add(r2);
         r2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r2.setText("No");
+        AddCusPanel.add(r2, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 438, -1, -1));
 
         rb_two.add(p2);
         p2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p2.setText("No");
+        AddCusPanel.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 492, -1, -1));
 
         rb_two.add(p1);
         p1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p1.setText("Yes");
+        AddCusPanel.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 492, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         jLabel8.setText("Any PWDs or senior citizens in your family?");
-
-        javax.swing.GroupLayout AddCusPanelLayout = new javax.swing.GroupLayout(AddCusPanel);
-        AddCusPanel.setLayout(AddCusPanelLayout);
-        AddCusPanelLayout.setHorizontalGroup(
-            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(259, 259, 259)
-                        .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))
-                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                        .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(274, 274, 274)
-                                .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                                        .addGap(186, 186, 186)
-                                        .addComponent(r1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(r2))
-                                    .addGroup(AddCusPanelLayout.createSequentialGroup()
-                                        .addGap(81, 81, 81)
-                                        .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pnum, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(mnum, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(vtype, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(64, 64, 64)
-                                .addComponent(p1)
-                                .addGap(18, 18, 18)
-                                .addComponent(p2)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        AddCusPanelLayout.setVerticalGroup(
-            AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddCusPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(DashboardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DashboardLine1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fname))
-                .addGap(23, 23, 23)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lname))
-                .addGap(18, 18, 18)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mnum))
-                .addGap(18, 18, 18)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnum))
-                .addGap(18, 18, 18)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vtype)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(r1)
-                    .addComponent(r2))
-                .addGap(18, 18, 18)
-                .addGroup(AddCusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p1)
-                    .addComponent(p2))
-                .addGap(207, 207, 207))
-        );
+        AddCusPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 491, -1, 36));
 
         DashboardTab.addTab("tab1", AddCusPanel);
 
-        jPanel1.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, -38, 900, 760));
+        AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
+        AvailParkingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+        DashboardLine2.setkEndColor(new java.awt.Color(255, 145, 144));
+        DashboardLine2.setkStartColor(new java.awt.Color(94, 114, 235));
+
+        javax.swing.GroupLayout DashboardLine2Layout = new javax.swing.GroupLayout(DashboardLine2);
+        DashboardLine2.setLayout(DashboardLine2Layout);
+        DashboardLine2Layout.setHorizontalGroup(
+            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        DashboardLine2Layout.setVerticalGroup(
+            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
         );
+
+        AvailParkingPanel.add(DashboardLine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
+
+        DashboardLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
+        DashboardLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        DashboardLabel2.setText("Available Parking");
+        AvailParkingPanel.add(DashboardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 735, 82));
+
+        DashboardTab.addTab("tab2", AvailParkingPanel);
+
+        jPanel1.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, -38, 910, 770));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 733));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDashboardActionPerformed
-        DashboardTab.setSelectedIndex(2);
+        DashboardTab.setSelectedIndex(0);
     }//GEN-LAST:event_BtnDashboardActionPerformed
 
     private void BtnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddCustomerActionPerformed
-        DashboardTab.setSelectedIndex(1);
+        DashboardTab.setSelectedIndex(2);
     }//GEN-LAST:event_BtnAddCustomerActionPerformed
 
     private void BtnAvailableParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvailableParkingActionPerformed
-        DashboardTab.setSelectedIndex(0);
+        DashboardTab.setSelectedIndex(1);
     }//GEN-LAST:event_BtnAvailableParkingActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
@@ -508,6 +386,30 @@ public class dashboard extends javax.swing.JFrame {
 
     private void BtnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDashboardMouseClicked
     }//GEN-LAST:event_BtnDashboardMouseClicked
+
+    private void BtnDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDashboardMouseEntered
+        BtnDashboard.setForeground(Color.BLACK);
+    }//GEN-LAST:event_BtnDashboardMouseEntered
+
+    private void BtnDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDashboardMouseExited
+        BtnDashboard.setForeground(Color.WHITE);
+    }//GEN-LAST:event_BtnDashboardMouseExited
+
+    private void BtnAvailableParkingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAvailableParkingMouseEntered
+        BtnAvailableParking.setForeground(Color.BLACK);
+    }//GEN-LAST:event_BtnAvailableParkingMouseEntered
+
+    private void BtnAvailableParkingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAvailableParkingMouseExited
+        BtnAvailableParking.setForeground(Color.WHITE);
+    }//GEN-LAST:event_BtnAvailableParkingMouseExited
+
+    private void BtnAddCustomerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddCustomerMouseEntered
+        BtnAddCustomer.setForeground(Color.BLACK);
+    }//GEN-LAST:event_BtnAddCustomerMouseEntered
+
+    private void BtnAddCustomerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddCustomerMouseExited
+        BtnAddCustomer.setForeground(Color.WHITE);
+    }//GEN-LAST:event_BtnAddCustomerMouseExited
 
     /**
      * @param args the command line arguments
@@ -572,9 +474,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel3;
     private javax.swing.JTextField lname;
