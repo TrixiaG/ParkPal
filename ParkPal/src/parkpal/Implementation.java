@@ -4,11 +4,18 @@
  */
 package parkpal;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author PC
  */
 public class Implementation{
+    static final String FILENAME = "data.txt";
     static String fname = null;
     static String lname = null;
     static String mnum = null;
@@ -16,6 +23,16 @@ public class Implementation{
     static String vtype = null;
     static boolean isPwd_Sen = false;
     static boolean havePwd_Sen = false;
+    ArrayList<String> data = new ArrayList<String>();
+    static String date = null;
+
+    public ArrayList<String> getData() {
+        return data;
+    }
+
+    public void setData(ArrayList<String> data) {
+        this.data = data;
+    }
 
     public static String getFname() {
         return fname;
@@ -72,10 +89,25 @@ public class Implementation{
     public static void setHavePwd_Sen(boolean havePwd_Sen) {
         Implementation.havePwd_Sen = havePwd_Sen;
     }
-
     
-    public void Print(){
-        System.out.println(fname + " " + lname + " " + mnum + " " + pnum + " " + vtype + " " + isPwd_Sen + " " + havePwd_Sen);
+    public void saveData(){
+        data.add(Implementation.getFname());
+        data.add(Implementation.getLname());
+        data.add(Implementation.getMnum());
+        data.add(Implementation.getPnum());
+        data.add(Implementation.getVtype());
+        data.add(String.valueOf(Implementation.isIsPwd_Sen()));
+        data.add(String.valueOf(Implementation.isHavePwd_Sen()));
+        
+        try {
+            FileWriter fw = new FileWriter(FILENAME);
+            BufferedWriter bw = new BufferedWriter(fw);
+            String joinedString = String.join(", ", data);
+            bw.write(joinedString);
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
 }
