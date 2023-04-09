@@ -22,13 +22,6 @@ public class dashboard extends javax.swing.JFrame {
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
     }
-    @Override
-    public void paint(Graphics g) {
-        // Paint the JFrame
-        super.paint(g);
-        Graphics2D g2 = (Graphics2D) g;
-        g2.draw(getShape());
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
