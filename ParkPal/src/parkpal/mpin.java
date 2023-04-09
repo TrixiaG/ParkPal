@@ -4,7 +4,10 @@
  */
 package parkpal;
 
+import java.awt.Frame;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -23,10 +26,13 @@ public class mpin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleBar = new javax.swing.JPanel();
+        btnMin = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         mpinLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        mpinPwField = new javax.swing.JPasswordField();
+        mpinPwField = new javax.swing.JPasswordField(4);
         mpinHeader = new javax.swing.JLabel();
         mpinSubmitBtn = new javax.swing.JButton();
 
@@ -34,8 +40,81 @@ public class mpin extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(500, 500));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titleBar.setBackground(new java.awt.Color(94, 30, 249));
+
+        btnMin.setBackground(new java.awt.Color(98, 103, 235));
+        btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnMin.setForeground(new java.awt.Color(255, 255, 255));
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/min.png"))); // NOI18N
+        btnMin.setBorder(null);
+        btnMin.setContentAreaFilled(false);
+        btnMin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinMouseExited(evt);
+            }
+        });
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
+
+        btnExit.setBackground(new java.awt.Color(98, 103, 235));
+        btnExit.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/ex1.png"))); // NOI18N
+        btnExit.setBorder(null);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
+        titleBar.setLayout(titleBarLayout);
+        titleBarLayout.setHorizontalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
+                .addContainerGap(453, Short.MAX_VALUE)
+                .addComponent(btnMin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit)
+                .addGap(12, 12, 12))
+        );
+        titleBarLayout.setVerticalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titleBarLayout.createSequentialGroup()
+                .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(titleBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 20));
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
         kGradientPanel1.setkGradientFocus(200);
@@ -52,16 +131,21 @@ public class mpin extends javax.swing.JFrame {
         kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 210, -1));
 
         mpinPwField.setBackground(new java.awt.Color(255, 255, 255));
+        mpinPwField.setDocument(mpinPwField.getDocument());
         mpinPwField.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
         mpinPwField.setForeground(new java.awt.Color(255, 153, 153));
         mpinPwField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        mpinPwField.setText("******");
         mpinPwField.setActionCommand("<Not Set>");
         mpinPwField.setAlignmentX(0.0F);
         mpinPwField.setAlignmentY(0.0F);
         mpinPwField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         mpinPwField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         mpinPwField.setOpaque(true);
+        mpinPwField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mpinPwField(evt);
+            }
+        });
         kGradientPanel1.add(mpinPwField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 330, 44));
 
         mpinHeader.setFont(new java.awt.Font("Poppins Medium", 0, 30)); // NOI18N
@@ -84,6 +168,44 @@ public class mpin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseClicked
+
+    private void btnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseEntered
+
+    private void btnMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseExited
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnMin);
+        frame.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_btnMinActionPerformed
+
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnExit);
+        frame.dispose();
+    }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseExited
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void mpinPwField(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mpinPwField
+
+    }//GEN-LAST:event_mpinPwField
 
     /**
      * @param args the command line arguments
@@ -121,11 +243,14 @@ public class mpin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnMin;
     private javax.swing.JLabel jLabel1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel mpinHeader;
     private javax.swing.JLabel mpinLogo;
     private javax.swing.JPasswordField mpinPwField;
     private javax.swing.JButton mpinSubmitBtn;
+    private javax.swing.JPanel titleBar;
     // End of variables declaration//GEN-END:variables
 }
