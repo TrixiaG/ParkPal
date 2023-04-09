@@ -223,9 +223,9 @@ public class welcome extends javax.swing.JFrame {
         } else if (!Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'})){
             JOptionPane.showMessageDialog(null,"Incorrect password. Please try again.", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
         } else if (Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'}) && usernameTxtField.getText().equals("AdminA")){
-               dashboard dboard = new dashboard();
-               dboard.setVisible(true);
-               dboard.pack();
+               mpin mpinWin = new mpin();
+               mpinWin.setVisible(true);
+               mpinWin.pack();
                this.dispose();
         }
     }//GEN-LAST:event_LogInButtonActionPerformed
