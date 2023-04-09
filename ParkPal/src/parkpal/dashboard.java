@@ -122,6 +122,12 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dashTabled = new javax.swing.JTable();
+        sortVtypeBtn = new javax.swing.JButton();
+        DashboardLine3 = new keeptoo.KGradientPanel();
+        sortFnameBtn = new javax.swing.JButton();
+        sortLnameBtn1 = new javax.swing.JButton();
+        sortPnumberBtn1 = new javax.swing.JButton();
+        sortVtypeBtn1 = new javax.swing.JButton();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -444,11 +450,11 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine.setLayout(DashboardLineLayout);
         DashboardLineLayout.setHorizontalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         DashboardLineLayout.setVerticalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Dashboardpanel.add(DashboardLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
@@ -461,7 +467,7 @@ public class dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Last Name", "Mobile Number", "Plate Number", "Vehicle Type", "PWD or Senior", "Have PWD Member or Senior Citizen", "Date Applied"
+                "First Name", "Last Name", "Mobile Number", "Plate Number", "Vehicle Type", "PWD/SC", "PWD/SC Family", "Reg. Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -476,6 +482,7 @@ public class dashboard extends javax.swing.JFrame {
         dashTabled.setGridColor(new java.awt.Color(94, 114, 235));
         dashTabled.setSelectionBackground(new java.awt.Color(255, 145, 144));
         dashTabled.setSelectionForeground(new java.awt.Color(94, 114, 235));
+        dashTabled.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(dashTabled);
         if (dashTabled.getColumnModel().getColumnCount() > 0) {
             dashTabled.getColumnModel().getColumn(0).setResizable(false);
@@ -488,7 +495,82 @@ public class dashboard extends javax.swing.JFrame {
             dashTabled.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 880, 430));
+        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 880, 430));
+
+        sortVtypeBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        sortVtypeBtn.setForeground(new java.awt.Color(233, 123, 122));
+        sortVtypeBtn.setText("SORT BY REG. DATE");
+        sortVtypeBtn.setToolTipText("");
+        sortVtypeBtn.setActionCommand("SORT BYFIRST NAME");
+        sortVtypeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(233, 123, 122), 1, true));
+        sortVtypeBtn.setContentAreaFilled(false);
+        sortVtypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortVtypeBtnActionPerformed(evt);
+            }
+        });
+        Dashboardpanel.add(sortVtypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 160, 30));
+
+        DashboardLine3.setkEndColor(new java.awt.Color(255, 145, 144));
+        DashboardLine3.setkStartColor(new java.awt.Color(94, 114, 235));
+
+        javax.swing.GroupLayout DashboardLine3Layout = new javax.swing.GroupLayout(DashboardLine3);
+        DashboardLine3.setLayout(DashboardLine3Layout);
+        DashboardLine3Layout.setHorizontalGroup(
+            DashboardLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        DashboardLine3Layout.setVerticalGroup(
+            DashboardLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
+        );
+
+        Dashboardpanel.add(DashboardLine3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
+
+        sortFnameBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        sortFnameBtn.setForeground(new java.awt.Color(96, 114, 233));
+        sortFnameBtn.setText("SORT BY FIRST NAME");
+        sortFnameBtn.setToolTipText("");
+        sortFnameBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(96, 114, 233), 1, true));
+        sortFnameBtn.setContentAreaFilled(false);
+        Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 30));
+
+        sortLnameBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        sortLnameBtn1.setForeground(new java.awt.Color(197, 133, 176));
+        sortLnameBtn1.setText("SORT BY LAST NAME");
+        sortLnameBtn1.setToolTipText("");
+        sortLnameBtn1.setActionCommand("SORT BYFIRST NAME");
+        sortLnameBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 133, 176), 1, true));
+        sortLnameBtn1.setContentAreaFilled(false);
+        Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 160, 30));
+
+        sortPnumberBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        sortPnumberBtn1.setForeground(new java.awt.Color(235, 141, 155));
+        sortPnumberBtn1.setText("SORT BY PLATE NO.");
+        sortPnumberBtn1.setToolTipText("");
+        sortPnumberBtn1.setActionCommand("SORT BYFIRST NAME");
+        sortPnumberBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 141, 155), 1, true));
+        sortPnumberBtn1.setContentAreaFilled(false);
+        sortPnumberBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortPnumberBtn1ActionPerformed(evt);
+            }
+        });
+        Dashboardpanel.add(sortPnumberBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 160, 30));
+
+        sortVtypeBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        sortVtypeBtn1.setForeground(new java.awt.Color(255, 145, 144));
+        sortVtypeBtn1.setText("SORT BY VEHICLE TYPE");
+        sortVtypeBtn1.setToolTipText("");
+        sortVtypeBtn1.setActionCommand("SORT BYFIRST NAME");
+        sortVtypeBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 145, 144), 1, true));
+        sortVtypeBtn1.setContentAreaFilled(false);
+        sortVtypeBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortVtypeBtn1ActionPerformed(evt);
+            }
+        });
+        Dashboardpanel.add(sortVtypeBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 160, 30));
 
         DashboardTab.addTab("tab3", Dashboardpanel);
 
@@ -803,6 +885,18 @@ public class dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExit1ActionPerformed
 
+    private void sortVtypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortVtypeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortVtypeBtnActionPerformed
+
+    private void sortPnumberBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortPnumberBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortPnumberBtn1ActionPerformed
+
+    private void sortVtypeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortVtypeBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortVtypeBtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -851,6 +945,7 @@ public class dashboard extends javax.swing.JFrame {
     private keeptoo.KGradientPanel DashboardLine;
     private keeptoo.KGradientPanel DashboardLine1;
     private keeptoo.KGradientPanel DashboardLine2;
+    private keeptoo.KGradientPanel DashboardLine3;
     private javax.swing.JLabel DashboardLogo;
     private javax.swing.JTabbedPane DashboardTab;
     private javax.swing.JPanel Dashboardpanel;
@@ -884,6 +979,11 @@ public class dashboard extends javax.swing.JFrame {
     private static javax.swing.JRadioButton r2;
     private javax.swing.ButtonGroup rb_one;
     private javax.swing.ButtonGroup rb_two;
+    private javax.swing.JButton sortFnameBtn;
+    private javax.swing.JButton sortLnameBtn1;
+    private javax.swing.JButton sortPnumberBtn1;
+    private javax.swing.JButton sortVtypeBtn;
+    private javax.swing.JButton sortVtypeBtn1;
     private javax.swing.JPanel titleBar;
     private javax.swing.JPanel titleBar1;
     private javax.swing.JLabel vehicleLabel;
