@@ -920,11 +920,41 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_sortVtypeBtnActionPerformed
 
     private void sortPnumberBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortPnumberBtn1ActionPerformed
-        // TODO add your handling code here:
+        implement.readData();
+        implement.bubbleSort(implement.getData());
+        File file = new File("bubble.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            model.setRowCount(0);
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sortPnumberBtn1ActionPerformed
 
     private void sortVtypeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortVtypeBtn1ActionPerformed
-        // TODO add your handling code here:
+        implement.readData();
+        implement.InsertSort2(implement.getData());
+        File file = new File("insertion2.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            model.setRowCount(0);
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sortVtypeBtn1ActionPerformed
 
     private void sortFnameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortFnameBtnActionPerformed

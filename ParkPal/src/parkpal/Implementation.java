@@ -19,8 +19,6 @@ import java.util.Scanner;
  * @author PC
  */
 public class Implementation{
-
-    
     static final String FILENAME = "data.txt";
     static String fname = null;
     static String lname = null;
@@ -216,5 +214,65 @@ public class Implementation{
         String[] fields1 = s1.split(", ");
         String[] fields2 = s2.split(", ");
         return fields1[1].compareTo(fields2[1]);
+    }
+    public static void bubbleSort(ArrayList<String> data) {
+        int n = data.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                String plate1 = data.get(j).split(", ")[3];
+                String plate2 = data.get(j + 1).split(", ")[3];
+                if (plate1.compareTo(plate2) > 0) {
+                    String temp = data.get(j);
+                    data.set(j, data.get(j + 1));
+                    data.set(j + 1, temp);
+                }
+            }
+        }
+        try {
+            File file = new File("bubble.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (String line : data) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+    public static void InsertSort2(ArrayList<String> data) {
+        int n = data.size();
+        for (int i = 1; i < n; i++) {
+            String key = data.get(i);
+            int j = i - 1;
+            while (j >= 0 && compare2(data.get(j), key) > 0) {
+                data.set(j + 1, data.get(j));
+                j--;
+        }
+        data.set(j + 1, key);
+        }
+        try {
+            File file = new File("insertion2.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (String line : data) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+
+    private static int compare2(String s1, String s2) {
+        String[] fields1 = s1.split(", ");
+        String[] fields2 = s2.split(", ");
+        return fields1[4].compareTo(fields2[4]);
     }
 } 
