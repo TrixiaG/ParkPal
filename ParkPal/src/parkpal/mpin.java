@@ -16,6 +16,7 @@ public class mpin extends javax.swing.JFrame {
     public mpin() {
         initComponents();
         setLocationRelativeTo(null);
+        mpinPwField.setEchoChar('•');
     }
 
     /**
@@ -35,29 +36,45 @@ public class mpin extends javax.swing.JFrame {
         mpinSubmitBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(500, 500));
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
         kGradientPanel1.setkGradientFocus(200);
         kGradientPanel1.setkStartColor(new java.awt.Color(94, 114, 235));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mpinLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/mpin4.png"))); // NOI18N
+        kGradientPanel1.add(mpinLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, 170));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Please enter your MPIN");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Please enter your 6 - Digit MPIN");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 210, -1));
 
         mpinPwField.setBackground(new java.awt.Color(255, 255, 255));
-        mpinPwField.setFont(new java.awt.Font("Poppins Medium", 0, 70)); // NOI18N
+        mpinPwField.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
         mpinPwField.setForeground(new java.awt.Color(255, 153, 153));
-        mpinPwField.setText("dsada");
+        mpinPwField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mpinPwField.setText("******");
         mpinPwField.setActionCommand("<Not Set>");
+        mpinPwField.setAlignmentX(0.0F);
+        mpinPwField.setAlignmentY(0.0F);
         mpinPwField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        mpinPwField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         mpinPwField.setOpaque(true);
+        kGradientPanel1.add(mpinPwField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 330, 44));
 
         mpinHeader.setFont(new java.awt.Font("Poppins Medium", 0, 30)); // NOI18N
         mpinHeader.setForeground(new java.awt.Color(255, 255, 255));
+        mpinHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mpinHeader.setText("SECURITY VERIFICATION");
+        mpinHeader.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        kGradientPanel1.add(mpinHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 500, 39));
 
         mpinSubmitBtn.setBackground(new java.awt.Color(255, 255, 255));
         mpinSubmitBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
@@ -65,47 +82,12 @@ public class mpin extends javax.swing.JFrame {
         mpinSubmitBtn.setText("SUBMIT");
         mpinSubmitBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         mpinSubmitBtn.setContentAreaFilled(false);
+        kGradientPanel1.add(mpinSubmitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 80, 34));
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(mpinHeader))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(mpinLogo))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(mpinSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(mpinPwField, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(646, Short.MAX_VALUE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(mpinHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(mpinLogo)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mpinPwField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mpinSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 480));
+        getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
