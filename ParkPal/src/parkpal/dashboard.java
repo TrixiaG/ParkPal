@@ -916,7 +916,22 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExit1ActionPerformed
 
     private void sortVtypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortVtypeBtnActionPerformed
-        // TODO add your handling code here:
+        implement.readData();
+        implement.selectSortByDate(implement.getData());
+        File file = new File("selection_by_date.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            model.setRowCount(0);
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sortVtypeBtnActionPerformed
 
     private void sortPnumberBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortPnumberBtn1ActionPerformed

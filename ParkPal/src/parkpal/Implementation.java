@@ -275,4 +275,56 @@ public class Implementation{
         String[] fields2 = s2.split(", ");
         return fields1[4].compareTo(fields2[4]);
     }
+    public static void selectSortByDate(ArrayList<String> data) {
+        int n = data.size();
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (compareDate(data.get(j), data.get(minIndex)) < 0) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                String temp = data.get(i);
+                data.set(i, data.get(minIndex));
+                data.set(minIndex, temp);
+            }
+        }
+
+        try {
+            File file = new File("selection_by_date.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (String line : data) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+
+    private static int compareDate(String s1, String s2) {
+        String[] fields1 = s1.split(", ");
+        String[] fields2 = s2.split(", ");
+        String[] date1 = fields1[7].split("-");
+        String[] date2 = fields2[7].split("-");
+        int year1 = Integer.parseInt(date1[0]);
+        int year2 = Integer.parseInt(date2[0]);
+        if (year1 != year2) {
+            return year1 - year2;
+        }
+        int month1 = Integer.parseInt(date1[1]);
+        int month2 = Integer.parseInt(date2[1]);
+        if (month1 != month2) {
+            return month1 - month2;
+        }
+        int day1 = Integer.parseInt(date1[2]);
+        int day2 = Integer.parseInt(date2[2]);
+        return day1 - day2;
+    }
+
 } 
