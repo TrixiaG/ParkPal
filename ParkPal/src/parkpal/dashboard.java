@@ -50,7 +50,7 @@ public class dashboard extends javax.swing.JFrame {
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
         JTableHeader header = dashTabled.getTableHeader();
         header.setFont(new Font("Poppins Medium", Font.PLAIN, 12)); // set font for the header
-        header.setBackground(Color.LIGHT_GRAY); // set background color for the header
+        header.setBackground(Color.GRAY); // set background color for the header
         for (int i = 0; i < dashTabled.getColumnCount(); i++) {
             TableColumn column = dashTabled.getColumnModel().getColumn(i);
         }
@@ -151,6 +151,13 @@ public class dashboard extends javax.swing.JFrame {
         sortLnameBtn1 = new javax.swing.JButton();
         sortPnumberBtn1 = new javax.swing.JButton();
         sortVtypeBtn1 = new javax.swing.JButton();
+        AvailParkingPanel = new javax.swing.JPanel();
+        DashboardLine2 = new keeptoo.KGradientPanel();
+        DashboardLabel2 = new javax.swing.JLabel();
+        TotalRec = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
+        kGradientPanel4 = new keeptoo.KGradientPanel();
+        kGradientPanel5 = new keeptoo.KGradientPanel();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -171,9 +178,6 @@ public class dashboard extends javax.swing.JFrame {
         p1 = new javax.swing.JRadioButton();
         pwdFamLabel = new javax.swing.JLabel();
         SubmitAddCusBtn = new javax.swing.JButton();
-        AvailParkingPanel = new javax.swing.JPanel();
-        DashboardLine2 = new keeptoo.KGradientPanel();
-        DashboardLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -381,6 +385,7 @@ public class dashboard extends javax.swing.JFrame {
         BtnDashboard.setText("       DASHBOARD");
         BtnDashboard.setBorder(null);
         BtnDashboard.setContentAreaFilled(false);
+        BtnDashboard.setFocusPainted(false);
         BtnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         BtnDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,6 +414,7 @@ public class dashboard extends javax.swing.JFrame {
         BtnAddCustomer.setActionCommand("         ADD CUSTOMER");
         BtnAddCustomer.setBorder(null);
         BtnAddCustomer.setContentAreaFilled(false);
+        BtnAddCustomer.setFocusPainted(false);
         BtnAddCustomer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnAddCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         BtnAddCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -434,6 +440,7 @@ public class dashboard extends javax.swing.JFrame {
         BtnAvailableParking.setActionCommand("         ADD CUSTOMER");
         BtnAvailableParking.setBorder(null);
         BtnAvailableParking.setContentAreaFilled(false);
+        BtnAvailableParking.setFocusPainted(false);
         BtnAvailableParking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnAvailableParking.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         BtnAvailableParking.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -456,6 +463,7 @@ public class dashboard extends javax.swing.JFrame {
         ExitButton.setText("E X I T");
         ExitButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ExitButton.setContentAreaFilled(false);
+        ExitButton.setFocusPainted(false);
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitButtonActionPerformed(evt);
@@ -474,7 +482,7 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLabel.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
         DashboardLabel.setForeground(new java.awt.Color(153, 153, 153));
         DashboardLabel.setText("Dashboard");
-        Dashboardpanel.add(DashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 352, 82));
+        Dashboardpanel.add(DashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 352, 82));
 
         DashboardLine.setkEndColor(new java.awt.Color(255, 145, 144));
         DashboardLine.setkStartColor(new java.awt.Color(94, 114, 235));
@@ -512,7 +520,7 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
         dashTabled.setFocusable(false);
-        dashTabled.setGridColor(new java.awt.Color(94, 114, 235));
+        dashTabled.setGridColor(new java.awt.Color(255, 255, 255));
         dashTabled.setSelectionBackground(new java.awt.Color(255, 145, 144));
         dashTabled.setSelectionForeground(new java.awt.Color(94, 114, 235));
         dashTabled.getTableHeader().setReorderingAllowed(false);
@@ -528,7 +536,7 @@ public class dashboard extends javax.swing.JFrame {
             dashTabled.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 880, 430));
+        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 840, 500));
 
         sortVtypeBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortVtypeBtn.setForeground(new java.awt.Color(233, 123, 122));
@@ -537,12 +545,13 @@ public class dashboard extends javax.swing.JFrame {
         sortVtypeBtn.setActionCommand("SORT BYFIRST NAME");
         sortVtypeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(233, 123, 122), 1, true));
         sortVtypeBtn.setContentAreaFilled(false);
+        sortVtypeBtn.setFocusPainted(false);
         sortVtypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortVtypeBtnActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortVtypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 160, 30));
+        Dashboardpanel.add(sortVtypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 160, 30));
 
         DashboardLine3.setkEndColor(new java.awt.Color(255, 145, 144));
         DashboardLine3.setkStartColor(new java.awt.Color(94, 114, 235));
@@ -551,14 +560,14 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine3.setLayout(DashboardLine3Layout);
         DashboardLine3Layout.setHorizontalGroup(
             DashboardLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
         DashboardLine3Layout.setVerticalGroup(
             DashboardLine3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        Dashboardpanel.add(DashboardLine3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
+        Dashboardpanel.add(DashboardLine3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 870, -1));
 
         sortFnameBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortFnameBtn.setForeground(new java.awt.Color(96, 114, 233));
@@ -566,12 +575,13 @@ public class dashboard extends javax.swing.JFrame {
         sortFnameBtn.setToolTipText("");
         sortFnameBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(96, 114, 233), 1, true));
         sortFnameBtn.setContentAreaFilled(false);
+        sortFnameBtn.setFocusPainted(false);
         sortFnameBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortFnameBtnActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 30));
+        Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, 30));
 
         sortLnameBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortLnameBtn1.setForeground(new java.awt.Color(197, 133, 176));
@@ -580,12 +590,13 @@ public class dashboard extends javax.swing.JFrame {
         sortLnameBtn1.setActionCommand("SORT BYFIRST NAME");
         sortLnameBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 133, 176), 1, true));
         sortLnameBtn1.setContentAreaFilled(false);
+        sortLnameBtn1.setFocusPainted(false);
         sortLnameBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortLnameBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 160, 30));
+        Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 160, 30));
 
         sortPnumberBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortPnumberBtn1.setForeground(new java.awt.Color(235, 141, 155));
@@ -594,12 +605,13 @@ public class dashboard extends javax.swing.JFrame {
         sortPnumberBtn1.setActionCommand("SORT BYFIRST NAME");
         sortPnumberBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(235, 141, 155), 1, true));
         sortPnumberBtn1.setContentAreaFilled(false);
+        sortPnumberBtn1.setFocusPainted(false);
         sortPnumberBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortPnumberBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortPnumberBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 160, 30));
+        Dashboardpanel.add(sortPnumberBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 160, 30));
 
         sortVtypeBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortVtypeBtn1.setForeground(new java.awt.Color(255, 145, 144));
@@ -608,14 +620,85 @@ public class dashboard extends javax.swing.JFrame {
         sortVtypeBtn1.setActionCommand("SORT BYFIRST NAME");
         sortVtypeBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 145, 144), 1, true));
         sortVtypeBtn1.setContentAreaFilled(false);
+        sortVtypeBtn1.setFocusPainted(false);
         sortVtypeBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortVtypeBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortVtypeBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 160, 30));
+        Dashboardpanel.add(sortVtypeBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 160, 30));
 
         DashboardTab.addTab("tab3", Dashboardpanel);
+
+        AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
+        AvailParkingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        DashboardLine2.setkEndColor(new java.awt.Color(255, 145, 144));
+        DashboardLine2.setkStartColor(new java.awt.Color(94, 114, 235));
+
+        javax.swing.GroupLayout DashboardLine2Layout = new javax.swing.GroupLayout(DashboardLine2);
+        DashboardLine2.setLayout(DashboardLine2Layout);
+        DashboardLine2Layout.setHorizontalGroup(
+            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 870, Short.MAX_VALUE)
+        );
+        DashboardLine2Layout.setVerticalGroup(
+            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 12, Short.MAX_VALUE)
+        );
+
+        AvailParkingPanel.add(DashboardLine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 870, -1));
+
+        DashboardLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
+        DashboardLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        DashboardLabel2.setText("Available Parking");
+        AvailParkingPanel.add(DashboardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 735, 82));
+
+        TotalRec.setBackground(new java.awt.Color(255, 255, 255));
+        TotalRec.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+
+        TotalRec.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, -1));
+
+        javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
+        kGradientPanel4.setLayout(kGradientPanel4Layout);
+        kGradientPanel4Layout.setHorizontalGroup(
+            kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
+        kGradientPanel4Layout.setVerticalGroup(
+            kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+
+        TotalRec.add(kGradientPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
+
+        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
+        kGradientPanel5.setLayout(kGradientPanel5Layout);
+        kGradientPanel5Layout.setHorizontalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 266, Short.MAX_VALUE)
+        );
+        kGradientPanel5Layout.setVerticalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+
+        TotalRec.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        AvailParkingPanel.add(TotalRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 870, 540));
+
+        DashboardTab.addTab("tab2", AvailParkingPanel);
 
         AddCusPanel.setBackground(new java.awt.Color(255, 255, 255));
         AddCusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -627,37 +710,37 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine1.setLayout(DashboardLine1Layout);
         DashboardLine1Layout.setHorizontalGroup(
             DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
         DashboardLine1Layout.setVerticalGroup(
             DashboardLine1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        AddCusPanel.add(DashboardLine1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
+        AddCusPanel.add(DashboardLine1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 870, -1));
 
         DashboardLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
         DashboardLabel1.setForeground(new java.awt.Color(153, 153, 153));
         DashboardLabel1.setText("Add Customer");
-        AddCusPanel.add(DashboardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 492, 82));
+        AddCusPanel.add(DashboardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 492, 82));
 
         nameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         nameLabel.setText("Given Name:");
-        AddCusPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 162, -1, 36));
+        AddCusPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, 36));
 
         fname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        AddCusPanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 162, 417, -1));
+        AddCusPanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 417, -1));
 
         lastnameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         lastnameLabel.setText("Last Name:");
-        AddCusPanel.add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 221, -1, 36));
+        AddCusPanel.add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, 36));
 
         lname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        AddCusPanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 221, 417, -1));
+        AddCusPanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 417, -1));
 
         mobileNumberLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         mobileNumberLabel.setText("Mobile Number:");
-        AddCusPanel.add(mobileNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 275, -1, 36));
+        AddCusPanel.add(mobileNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, 36));
 
         mnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         mnum.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -665,11 +748,11 @@ public class dashboard extends javax.swing.JFrame {
                 mnumKeyTyped(evt);
             }
         });
-        AddCusPanel.add(mnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 275, 417, -1));
+        AddCusPanel.add(mnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 417, -1));
 
         plateNumberLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         plateNumberLabel.setText("Plate Number:");
-        AddCusPanel.add(plateNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 329, -1, 36));
+        AddCusPanel.add(plateNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, 36));
 
         pnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         pnum.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -677,47 +760,47 @@ public class dashboard extends javax.swing.JFrame {
                 pnumKeyTyped(evt);
             }
         });
-        AddCusPanel.add(pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 329, 417, -1));
+        AddCusPanel.add(pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 417, -1));
 
         pwdLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         pwdLabel.setText("PWD Member or Senior Citizen:");
-        AddCusPanel.add(pwdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 437, -1, 36));
+        AddCusPanel.add(pwdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, 36));
 
         vtype.setBackground(new java.awt.Color(98, 103, 235));
         vtype.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         vtype.setForeground(new java.awt.Color(255, 255, 255));
         vtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Motorcycle", "4 Wheeler Car" }));
         vtype.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        AddCusPanel.add(vtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 383, 417, -1));
+        AddCusPanel.add(vtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, 417, -1));
 
         vehicleLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         vehicleLabel.setText("Vehicle Type:");
-        AddCusPanel.add(vehicleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 383, -1, 36));
+        AddCusPanel.add(vehicleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, 36));
 
         rb_one.add(r1);
         r1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r1.setText("Yes");
         r1.setBorderPainted(true);
-        AddCusPanel.add(r1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 438, -1, -1));
+        AddCusPanel.add(r1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
 
         rb_one.add(r2);
         r2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r2.setText("No");
-        AddCusPanel.add(r2, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 438, -1, -1));
+        AddCusPanel.add(r2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
         rb_two.add(p2);
         p2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p2.setText("No");
-        AddCusPanel.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 492, -1, -1));
+        AddCusPanel.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
 
         rb_two.add(p1);
         p1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p1.setText("Yes");
-        AddCusPanel.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 492, -1, -1));
+        AddCusPanel.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, -1, -1));
 
         pwdFamLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         pwdFamLabel.setText("Any PWDs or senior citizens in your family?");
-        AddCusPanel.add(pwdFamLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 491, -1, 36));
+        AddCusPanel.add(pwdFamLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, -1, 36));
 
         SubmitAddCusBtn.setBackground(new java.awt.Color(255, 153, 0));
         SubmitAddCusBtn.setFont(new java.awt.Font("Poppins Medium", 0, 36)); // NOI18N
@@ -730,35 +813,9 @@ public class dashboard extends javax.swing.JFrame {
                 SubmitAddCusBtnActionPerformed(evt);
             }
         });
-        AddCusPanel.add(SubmitAddCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, 170, 60));
+        AddCusPanel.add(SubmitAddCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 610, 170, 60));
 
         DashboardTab.addTab("tab1", AddCusPanel);
-
-        AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
-        AvailParkingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        DashboardLine2.setkEndColor(new java.awt.Color(255, 145, 144));
-        DashboardLine2.setkStartColor(new java.awt.Color(94, 114, 235));
-
-        javax.swing.GroupLayout DashboardLine2Layout = new javax.swing.GroupLayout(DashboardLine2);
-        DashboardLine2.setLayout(DashboardLine2Layout);
-        DashboardLine2Layout.setHorizontalGroup(
-            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
-        );
-        DashboardLine2Layout.setVerticalGroup(
-            DashboardLine2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
-
-        AvailParkingPanel.add(DashboardLine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
-
-        DashboardLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 60)); // NOI18N
-        DashboardLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        DashboardLabel2.setText("Available Parking");
-        AvailParkingPanel.add(DashboardLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 735, 82));
-
-        DashboardTab.addTab("tab2", AvailParkingPanel);
 
         jPanel1.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, -38, 910, 770));
 
@@ -773,11 +830,11 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnDashboardActionPerformed
 
     private void BtnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddCustomerActionPerformed
-        DashboardTab.setSelectedIndex(2);
+        DashboardTab.setSelectedIndex(1);
     }//GEN-LAST:event_BtnAddCustomerActionPerformed
 
     private void BtnAvailableParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvailableParkingActionPerformed
-        DashboardTab.setSelectedIndex(1);
+        DashboardTab.setSelectedIndex(2);
     }//GEN-LAST:event_BtnAvailableParkingActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
@@ -1062,6 +1119,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton SubmitAddCusBtn;
+    private javax.swing.JPanel TotalRec;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnExit1;
     private javax.swing.JButton btnMin;
@@ -1074,7 +1132,10 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private keeptoo.KGradientPanel kGradientPanel3;
+    private keeptoo.KGradientPanel kGradientPanel4;
+    private keeptoo.KGradientPanel kGradientPanel5;
     private javax.swing.JLabel lastnameLabel;
     private static javax.swing.JTextField lname;
     private static javax.swing.JTextField mnum;
