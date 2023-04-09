@@ -19,6 +19,8 @@ import javax.swing.text.PlainDocument;
  */
 public class mpin extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
+    int xMouse;
+    int yMouse;
     
     public mpin() {
         initComponents();
@@ -60,6 +62,16 @@ public class mpin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleBar.setBackground(new java.awt.Color(94, 30, 249));
+        titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                titleBarMouseDragged(evt);
+            }
+        });
+        titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                titleBarMousePressed(evt);
+            }
+        });
 
         btnMin.setBackground(new java.awt.Color(98, 103, 235));
         btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
@@ -223,6 +235,18 @@ public class mpin extends javax.swing.JFrame {
     private void mpinPwField(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mpinPwField
 
     }//GEN-LAST:event_mpinPwField
+
+    private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_titleBarMouseDragged
+
+    private void titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_titleBarMousePressed
 
     /**
      * @param args the command line arguments

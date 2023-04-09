@@ -28,6 +28,9 @@ import javax.swing.text.PlainDocument;
  */
 public class dashboard extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
+    int xMouse;
+    int yMouse;
+    
     static final String FILENAME = "data.txt";
     static String first_name;
     static String last_name;
@@ -201,6 +204,16 @@ public class dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleBar.setBackground(new java.awt.Color(94, 30, 249));
+        titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                titleBarMouseDragged(evt);
+            }
+        });
+        titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                titleBarMousePressed(evt);
+            }
+        });
 
         btnMin.setBackground(new java.awt.Color(98, 103, 235));
         btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
@@ -1010,6 +1023,18 @@ public class dashboard extends javax.swing.JFrame {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_sortLnameBtn1ActionPerformed
+
+    private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_titleBarMouseDragged
+
+    private void titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_titleBarMousePressed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

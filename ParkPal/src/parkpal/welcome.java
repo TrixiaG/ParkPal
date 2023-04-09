@@ -17,6 +17,9 @@ import javax.swing.SwingUtilities;
  */
 public class welcome extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
+    int xMouse;
+    int yMouse;
+    
     public welcome() {
         initComponents();
         setLocationRelativeTo(null);
@@ -67,6 +70,19 @@ public class welcome extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleBar.setBackground(new java.awt.Color(94, 30, 249));
+        titleBar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                titleBarMouseDragged(evt);
+            }
+        });
+        titleBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                titleBarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                titleBarMouseReleased(evt);
+            }
+        });
 
         btnMin.setBackground(new java.awt.Color(98, 103, 235));
         btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
@@ -339,6 +355,22 @@ public class welcome extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_titleBarMouseDragged
+
+    private void titleBarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseReleased
+
+    }//GEN-LAST:event_titleBarMouseReleased
+
+    private void titleBarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_titleBarMousePressed
 
     /**
      * @param args the command line arguments
