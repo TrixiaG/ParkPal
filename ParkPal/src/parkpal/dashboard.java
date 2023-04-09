@@ -13,6 +13,7 @@ import java.awt.Color;
  */
 public class dashboard extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
+    Implementation implement = new Implementation();
     /**
      * Creates new form dashboard
      */
@@ -277,6 +278,11 @@ public class dashboard extends javax.swing.JFrame {
         AddCusPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 275, -1, 36));
 
         mnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        mnum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mnumKeyTyped(evt);
+            }
+        });
         AddCusPanel.add(mnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 275, 417, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
@@ -284,6 +290,11 @@ public class dashboard extends javax.swing.JFrame {
         AddCusPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 329, -1, 36));
 
         pnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        pnum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pnumKeyTyped(evt);
+            }
+        });
         AddCusPanel.add(pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 329, 417, -1));
 
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
@@ -332,6 +343,11 @@ public class dashboard extends javax.swing.JFrame {
         SubmitAddCusBtn.setText("SUBMIT");
         SubmitAddCusBtn.setBorder(null);
         SubmitAddCusBtn.setContentAreaFilled(false);
+        SubmitAddCusBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitAddCusBtnActionPerformed(evt);
+            }
+        });
         AddCusPanel.add(SubmitAddCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, 170, 60));
 
         DashboardTab.addTab("tab1", AddCusPanel);
@@ -413,6 +429,37 @@ public class dashboard extends javax.swing.JFrame {
         BtnAddCustomer.setForeground(Color.WHITE);
     }//GEN-LAST:event_BtnAddCustomerMouseExited
 
+    private void SubmitAddCusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitAddCusBtnActionPerformed
+        implement.setFname(fname.getText());
+        implement.setLname(lname.getText());
+        implement.setMnum(mnum.getText());
+        implement.setPnum(pnum.getText());
+        implement.setVtype(vtype.getSelectedItem().toString());
+        if(r1.isSelected()){
+            implement.setIsPwd_Sen(true);
+        }
+        else if(r2.isSelected()){
+            implement.setIsPwd_Sen(false);
+        }
+        if(p1.isSelected()){
+            implement.setHavePwd_Sen(true);
+        }
+        else if(p2.isSelected()){
+            implement.setHavePwd_Sen(false);
+        }
+        implement.Print();
+    }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
+
+    private void mnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mnumKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) || mnum.getText().length() >= 11) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_mnumKeyTyped
+
+    private void pnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pnumKeyTyped
+
+    }//GEN-LAST:event_pnumKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -450,7 +497,7 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AddCusPanel;
+    private static javax.swing.JPanel AddCusPanel;
     private javax.swing.JPanel AvailParkingPanel;
     private javax.swing.JButton BtnAddCustomer;
     private javax.swing.JButton BtnAvailableParking;
@@ -466,7 +513,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton SubmitAddCusBtn;
-    private javax.swing.JTextField fname;
+    private static javax.swing.JTextField fname;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -480,15 +527,15 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel3;
-    private javax.swing.JTextField lname;
-    private javax.swing.JTextField mnum;
-    private javax.swing.JRadioButton p1;
-    private javax.swing.JRadioButton p2;
-    private javax.swing.JTextField pnum;
-    private javax.swing.JRadioButton r1;
-    private javax.swing.JRadioButton r2;
+    private static javax.swing.JTextField lname;
+    private static javax.swing.JTextField mnum;
+    private static javax.swing.JRadioButton p1;
+    private static javax.swing.JRadioButton p2;
+    private static javax.swing.JTextField pnum;
+    private static javax.swing.JRadioButton r1;
+    private static javax.swing.JRadioButton r2;
     private javax.swing.ButtonGroup rb_one;
     private javax.swing.ButtonGroup rb_two;
-    private javax.swing.JComboBox<String> vtype;
+    private static javax.swing.JComboBox<String> vtype;
     // End of variables declaration//GEN-END:variables
 }

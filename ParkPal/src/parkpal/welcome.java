@@ -4,20 +4,21 @@
  */
 package parkpal;
 
+import java.awt.geom.RoundRectangle2D;
 import java.util.Arrays;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
  * @author PC
  */
 public class welcome extends javax.swing.JFrame {
-    
+    private static final int CORNER_RADIUS = 30;
     public welcome() {
         initComponents();
         setLocationRelativeTo(null);
+        passwordPwField.setEchoChar('•');
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
     }
 
     /**
@@ -53,9 +54,11 @@ public class welcome extends javax.swing.JFrame {
         setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         setMaximumSize(new java.awt.Dimension(1280, 700));
         setName("HomePageFrame"); // NOI18N
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         HomePagePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePagePanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -186,18 +189,7 @@ public class welcome extends javax.swing.JFrame {
             .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(HomePagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HomePagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
-        );
+        getContentPane().add(HomePagePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
