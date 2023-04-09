@@ -26,7 +26,16 @@ public class dashboard extends javax.swing.JFrame {
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
     }
-
+    private void clear(){
+        fname.setText("");
+        lname.setText("");
+        mnum.setText("");
+        pnum.setText("");
+        vtype.setSelectedIndex(0);
+        rb_one.clearSelection();
+        rb_two.clearSelection();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -605,6 +614,7 @@ public class dashboard extends javax.swing.JFrame {
             implement.setHavePwd_Sen(false);
         }
         implement.Print();
+        clear();
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
 
     private void mnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mnumKeyTyped
