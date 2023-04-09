@@ -75,6 +75,7 @@ public class dashboard extends javax.swing.JFrame {
         p2 = new javax.swing.JRadioButton();
         p1 = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
+        SubmitAddCusBtn = new javax.swing.JButton();
         AvailParkingPanel = new javax.swing.JPanel();
         DashboardLine2 = new keeptoo.KGradientPanel();
         DashboardLabel2 = new javax.swing.JLabel();
@@ -332,6 +333,14 @@ public class dashboard extends javax.swing.JFrame {
         jLabel8.setText("Any PWDs or senior citizens in your family?");
         AddCusPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 491, -1, 36));
 
+        SubmitAddCusBtn.setBackground(new java.awt.Color(255, 153, 0));
+        SubmitAddCusBtn.setFont(new java.awt.Font("Poppins Medium", 0, 36)); // NOI18N
+        SubmitAddCusBtn.setForeground(new java.awt.Color(255, 145, 144));
+        SubmitAddCusBtn.setText("SUBMIT");
+        SubmitAddCusBtn.setBorder(null);
+        SubmitAddCusBtn.setContentAreaFilled(false);
+        AddCusPanel.add(SubmitAddCusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 570, 170, 60));
+
         DashboardTab.addTab("tab1", AddCusPanel);
 
         AvailParkingPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -463,6 +472,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane DashboardTab;
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JButton SubmitAddCusBtn;
     private javax.swing.JTextField fname;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel2;
