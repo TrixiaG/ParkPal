@@ -5,16 +5,22 @@
 package parkpal;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
  * @author PC
  */
 public class Implementation{
+
+    
     static final String FILENAME = "data.txt";
     static String fname = null;
     static String lname = null;
@@ -23,15 +29,23 @@ public class Implementation{
     static String vtype = null;
     static boolean isPwd_Sen = false;
     static boolean havePwd_Sen = false;
-    ArrayList<String> data = new ArrayList<String>();
+    static ArrayList<String> data = new ArrayList<String>();
     static String date = null;
 
-    public ArrayList<String> getData() {
+    public static ArrayList<String> getData() {
         return data;
     }
 
-    public void setData(ArrayList<String> data) {
-        this.data = data;
+    public static void setData(ArrayList<String> data) {
+        Implementation.data = data;
+    }
+
+    public static String getDate() {
+        return date;
+    }
+
+    public static void setDate(String date) {
+        Implementation.date = date;
     }
 
     public static String getFname() {
@@ -98,9 +112,10 @@ public class Implementation{
         data.add(Implementation.getVtype());
         data.add(String.valueOf(Implementation.isIsPwd_Sen()));
         data.add(String.valueOf(Implementation.isHavePwd_Sen()));
+        data.add(Implementation.getDate());
         
         try {
-            FileWriter fw = new FileWriter(FILENAME);
+            FileWriter fw = new FileWriter(FILENAME,true);
             BufferedWriter bw = new BufferedWriter(fw);
             String joinedString = String.join(", ", data);
             bw.write(joinedString);
@@ -109,5 +124,97 @@ public class Implementation{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        data.clear();
     }
-}
+    public static void readData() {
+        try {
+            Scanner scanner = new Scanner(new File(FILENAME));
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] fields = line.split(", ");
+            fname = fields[0];
+            lname = fields[1];
+            mnum = fields[2];
+            pnum = fields[3];
+            vtype = fields[4];
+            isPwd_Sen = Boolean.valueOf(fields[5]);
+            havePwd_Sen = Boolean.valueOf(fields[6]);
+            date = fields[7];
+            String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+            data.add(dataLine);
+        }
+        scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void InsertSort(ArrayList<String> data) {
+        int n = data.size();
+        for (int i = 1; i < n; i++) {
+            String key = data.get(i);
+            int j = i - 1;
+            while (j >= 0 && compare(data.get(j), key) > 0) {
+                data.set(j + 1, data.get(j));
+                j--;
+        }
+        data.set(j + 1, key);
+        }
+        try {
+            File file = new File("insertion.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (String line : data) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+
+    private static int compare(String s1, String s2) {
+        String[] fields1 = s1.split(", ");
+        String[] fields2 = s2.split(", ");
+        return fields1[0].compareTo(fields2[0]);
+    }
+    
+    public static void SelectSort(ArrayList<String> data) {
+        int n = data.size();
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (compareLastNames(data.get(j), data.get(minIndex)) < 0) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                String temp = data.get(i);
+                data.set(i, data.get(minIndex));
+                data.set(minIndex, temp);
+            }
+        }
+        try {
+            File file = new File("selection.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+            FileWriter writer = new FileWriter(file);
+            for (String line : data) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+
+    private static int compareLastNames(String s1, String s2) {
+        String[] fields1 = s1.split(", ");
+        String[] fields2 = s2.split(", ");
+        return fields1[1].compareTo(fields2[1]);
+    }
+} 

@@ -1,14 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package parkpal;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -39,6 +42,7 @@ public class dashboard extends javax.swing.JFrame {
     public dashboard() {
         initComponents();
         setLocationRelativeTo(null);
+        load();
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
         JTableHeader header = dashTabled.getTableHeader();
@@ -61,6 +65,7 @@ public class dashboard extends javax.swing.JFrame {
 
         });
     }
+    
     public void addTable(String first_name, 
             String last_name, 
             String mobnum, 
@@ -92,7 +97,22 @@ public class dashboard extends javax.swing.JFrame {
         rb_one.clearSelection();
         rb_two.clearSelection();
     }
-    
+    public static void load(){
+        File file = new File("data.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -533,6 +553,11 @@ public class dashboard extends javax.swing.JFrame {
         sortFnameBtn.setToolTipText("");
         sortFnameBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(96, 114, 233), 1, true));
         sortFnameBtn.setContentAreaFilled(false);
+        sortFnameBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortFnameBtnActionPerformed(evt);
+            }
+        });
         Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 30));
 
         sortLnameBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
@@ -542,6 +567,11 @@ public class dashboard extends javax.swing.JFrame {
         sortLnameBtn1.setActionCommand("SORT BYFIRST NAME");
         sortLnameBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(197, 133, 176), 1, true));
         sortLnameBtn1.setContentAreaFilled(false);
+        sortLnameBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortLnameBtn1ActionPerformed(evt);
+            }
+        });
         Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 160, 30));
 
         sortPnumberBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
@@ -777,6 +807,7 @@ public class dashboard extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date currentDate = new Date();
         date = dateFormat.format(currentDate);
+        implement.setDate(date);
         implement.setFname(first_name);
         implement.setLname(last_name);
         implement.setMnum(mobnum);
@@ -807,7 +838,6 @@ public class dashboard extends javax.swing.JFrame {
                 hPwd_Sen, 
                 date);
         clear();
-        
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
 
     private void mnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mnumKeyTyped
@@ -897,34 +927,45 @@ public class dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sortVtypeBtn1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void sortFnameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortFnameBtnActionPerformed
+        
+        implement.readData();
+        implement.InsertSort(implement.getData());
+        File file = new File("insertion.txt");
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            model.setRowCount(0);
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+    }//GEN-LAST:event_sortFnameBtnActionPerformed
 
-        /* Create and display the form */
+    private void sortLnameBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortLnameBtn1ActionPerformed
+        implement.readData();
+        implement.SelectSort(implement.getData());
+        File file = new File("selection.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
+            model.setRowCount(0);
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split(", ");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sortLnameBtn1ActionPerformed
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new dashboard().setVisible(true);
