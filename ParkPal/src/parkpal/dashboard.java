@@ -7,6 +7,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
+import java.awt.Frame;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author PC
@@ -39,6 +42,9 @@ public class dashboard extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         rb_one = new javax.swing.ButtonGroup();
         rb_two = new javax.swing.ButtonGroup();
+        titleBar = new javax.swing.JPanel();
+        btnMin = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         DashboardLogo = new javax.swing.JLabel();
@@ -53,22 +59,22 @@ public class dashboard extends javax.swing.JFrame {
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         fname = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lastnameLabel = new javax.swing.JLabel();
         lname = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        mobileNumberLabel = new javax.swing.JLabel();
         mnum = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        plateNumberLabel = new javax.swing.JLabel();
         pnum = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        pwdLabel = new javax.swing.JLabel();
         vtype = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
+        vehicleLabel = new javax.swing.JLabel();
         r1 = new javax.swing.JRadioButton();
         r2 = new javax.swing.JRadioButton();
         p2 = new javax.swing.JRadioButton();
         p1 = new javax.swing.JRadioButton();
-        jLabel8 = new javax.swing.JLabel();
+        pwdFamLabel = new javax.swing.JLabel();
         SubmitAddCusBtn = new javax.swing.JButton();
         AvailParkingPanel = new javax.swing.JPanel();
         DashboardLine2 = new keeptoo.KGradientPanel();
@@ -101,6 +107,80 @@ public class dashboard extends javax.swing.JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1280, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titleBar.setBackground(new java.awt.Color(94, 30, 249));
+
+        btnMin.setBackground(new java.awt.Color(98, 103, 235));
+        btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnMin.setForeground(new java.awt.Color(255, 255, 255));
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/min.png"))); // NOI18N
+        btnMin.setBorder(null);
+        btnMin.setContentAreaFilled(false);
+        btnMin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinMouseExited(evt);
+            }
+        });
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
+
+        btnExit.setBackground(new java.awt.Color(98, 103, 235));
+        btnExit.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/ex1.png"))); // NOI18N
+        btnExit.setBorder(null);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
+        titleBar.setLayout(titleBarLayout);
+        titleBarLayout.setHorizontalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
+                .addContainerGap(1227, Short.MAX_VALUE)
+                .addComponent(btnMin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExit)
+                .addGap(12, 12, 12))
+        );
+        titleBarLayout.setVerticalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titleBarLayout.createSequentialGroup()
+                .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(titleBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 20));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -259,23 +339,23 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLabel1.setText("Add Customer");
         AddCusPanel.add(DashboardLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 492, 82));
 
-        jLabel2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel2.setText("Given Name:");
-        AddCusPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 162, -1, 36));
+        nameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        nameLabel.setText("Given Name:");
+        AddCusPanel.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 162, -1, 36));
 
         fname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         AddCusPanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 162, 417, -1));
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel3.setText("Last Name:");
-        AddCusPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 221, -1, 36));
+        lastnameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        lastnameLabel.setText("Last Name:");
+        AddCusPanel.add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 221, -1, 36));
 
         lname.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         AddCusPanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 221, 417, -1));
 
-        jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel4.setText("Mobile Number:");
-        AddCusPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 275, -1, 36));
+        mobileNumberLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        mobileNumberLabel.setText("Mobile Number:");
+        AddCusPanel.add(mobileNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 275, -1, 36));
 
         mnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         mnum.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -285,9 +365,9 @@ public class dashboard extends javax.swing.JFrame {
         });
         AddCusPanel.add(mnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 275, 417, -1));
 
-        jLabel5.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel5.setText("Plate Number:");
-        AddCusPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 329, -1, 36));
+        plateNumberLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        plateNumberLabel.setText("Plate Number:");
+        AddCusPanel.add(plateNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 329, -1, 36));
 
         pnum.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         pnum.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -297,9 +377,9 @@ public class dashboard extends javax.swing.JFrame {
         });
         AddCusPanel.add(pnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 329, 417, -1));
 
-        jLabel6.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel6.setText("PWD Member or Senior Citizen:");
-        AddCusPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 437, -1, 36));
+        pwdLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        pwdLabel.setText("PWD Member or Senior Citizen:");
+        AddCusPanel.add(pwdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 437, -1, 36));
 
         vtype.setBackground(new java.awt.Color(98, 103, 235));
         vtype.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
@@ -308,9 +388,9 @@ public class dashboard extends javax.swing.JFrame {
         vtype.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddCusPanel.add(vtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 383, 417, -1));
 
-        jLabel7.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel7.setText("Vehicle Type:");
-        AddCusPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 383, -1, 36));
+        vehicleLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        vehicleLabel.setText("Vehicle Type:");
+        AddCusPanel.add(vehicleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 383, -1, 36));
 
         rb_one.add(r1);
         r1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
@@ -333,9 +413,9 @@ public class dashboard extends javax.swing.JFrame {
         p1.setText("Yes");
         AddCusPanel.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 492, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
-        jLabel8.setText("Any PWDs or senior citizens in your family?");
-        AddCusPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 491, -1, 36));
+        pwdFamLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        pwdFamLabel.setText("Any PWDs or senior citizens in your family?");
+        AddCusPanel.add(pwdFamLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 491, -1, 36));
 
         SubmitAddCusBtn.setBackground(new java.awt.Color(255, 153, 0));
         SubmitAddCusBtn.setFont(new java.awt.Font("Poppins Medium", 0, 36)); // NOI18N
@@ -460,6 +540,39 @@ public class dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_pnumKeyTyped
 
+    private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseClicked
+
+    private void btnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseEntered
+
+    private void btnMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseExited
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnMin);
+        frame.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_btnMinActionPerformed
+
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnExit);
+        frame.dispose();    }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseExited
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -513,29 +626,32 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton SubmitAddCusBtn;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnMin;
     private static javax.swing.JTextField fname;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel3;
+    private javax.swing.JLabel lastnameLabel;
     private static javax.swing.JTextField lname;
     private static javax.swing.JTextField mnum;
+    private javax.swing.JLabel mobileNumberLabel;
+    private javax.swing.JLabel nameLabel;
     private static javax.swing.JRadioButton p1;
     private static javax.swing.JRadioButton p2;
+    private javax.swing.JLabel plateNumberLabel;
     private static javax.swing.JTextField pnum;
+    private javax.swing.JLabel pwdFamLabel;
+    private javax.swing.JLabel pwdLabel;
     private static javax.swing.JRadioButton r1;
     private static javax.swing.JRadioButton r2;
     private javax.swing.ButtonGroup rb_one;
     private javax.swing.ButtonGroup rb_two;
+    private javax.swing.JPanel titleBar;
+    private javax.swing.JLabel vehicleLabel;
     private static javax.swing.JComboBox<String> vtype;
     // End of variables declaration//GEN-END:variables
 }

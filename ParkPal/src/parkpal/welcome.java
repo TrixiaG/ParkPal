@@ -4,9 +4,12 @@
  */
 package parkpal;
 
+import java.awt.Frame;
 import java.awt.geom.RoundRectangle2D;
 import java.util.Arrays;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -32,6 +35,9 @@ public class welcome extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        titleBar = new javax.swing.JPanel();
+        btnMin = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         HomePagePanel = new javax.swing.JPanel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
         ParkPalHeader = new javax.swing.JLabel();
@@ -59,6 +65,80 @@ public class welcome extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        titleBar.setBackground(new java.awt.Color(94, 30, 249));
+
+        btnMin.setBackground(new java.awt.Color(98, 103, 235));
+        btnMin.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnMin.setForeground(new java.awt.Color(255, 255, 255));
+        btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/min.png"))); // NOI18N
+        btnMin.setBorder(null);
+        btnMin.setContentAreaFilled(false);
+        btnMin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinMouseExited(evt);
+            }
+        });
+        btnMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinActionPerformed(evt);
+            }
+        });
+
+        btnExit.setBackground(new java.awt.Color(98, 103, 235));
+        btnExit.setFont(new java.awt.Font("Poppins Medium", 0, 17)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/ex1.png"))); // NOI18N
+        btnExit.setBorder(null);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExitMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+        });
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
+        titleBar.setLayout(titleBarLayout);
+        titleBarLayout.setHorizontalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
+                .addContainerGap(1227, Short.MAX_VALUE)
+                .addComponent(btnMin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExit)
+                .addGap(12, 12, 12))
+        );
+        titleBarLayout.setVerticalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titleBarLayout.createSequentialGroup()
+                .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(titleBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 20));
 
         HomePagePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePagePanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,6 +306,40 @@ public class welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameTxtFieldActionPerformed
 
+    private void btnMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseClicked
+
+    private void btnMinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseEntered
+
+    private void btnMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMouseExited
+
+    private void btnMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinActionPerformed
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnMin);
+        frame.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_btnMinActionPerformed
+
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnExit);
+        frame.dispose();
+    }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMouseExited
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,10 +386,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JCheckBox ShowPasswordCheckbox;
     private javax.swing.JLabel UserNameLabel;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnMin;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JPasswordField passwordPwField;
+    private javax.swing.JPanel titleBar;
     private javax.swing.JTextField usernameTxtField;
     // End of variables declaration//GEN-END:variables
 
