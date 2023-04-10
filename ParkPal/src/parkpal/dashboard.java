@@ -556,6 +556,7 @@ public class dashboard extends javax.swing.JFrame {
         });
         dashTabled.setFocusable(false);
         dashTabled.setGridColor(new java.awt.Color(255, 255, 255));
+        dashTabled.setOpaque(false);
         dashTabled.setRowHeight(50);
         dashTabled.setSelectionBackground(new java.awt.Color(232, 207, 250));
         dashTabled.getTableHeader().setReorderingAllowed(false);
