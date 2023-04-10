@@ -190,6 +190,9 @@ public class dashboard extends javax.swing.JFrame {
         kGradientPanel5 = new keeptoo.KGradientPanel();
         noCustomer = new javax.swing.JLabel();
         cusLogo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -534,9 +537,7 @@ public class dashboard extends javax.swing.JFrame {
 
         Dashboardpanel.add(DashboardLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 880, -1));
 
-        dashTabled.setBackground(new java.awt.Color(255, 255, 255));
         dashTabled.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        dashTabled.setForeground(new java.awt.Color(0, 0, 0));
         dashTabled.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -557,7 +558,6 @@ public class dashboard extends javax.swing.JFrame {
         dashTabled.setGridColor(new java.awt.Color(255, 255, 255));
         dashTabled.setRowHeight(50);
         dashTabled.setSelectionBackground(new java.awt.Color(232, 207, 250));
-        dashTabled.setSelectionForeground(new java.awt.Color(0, 0, 0));
         dashTabled.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(dashTabled);
         if (dashTabled.getColumnModel().getColumnCount() > 0) {
@@ -796,6 +796,21 @@ public class dashboard extends javax.swing.JFrame {
         );
 
         TotalRec.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 330));
+
+        jLabel1.setFont(new java.awt.Font("Poppins", 0, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 145, 144));
+        jLabel1.setText("Available Slots");
+        TotalRec.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 220, 40));
+
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(145, 124, 206));
+        jLabel2.setText("Customers");
+        TotalRec.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 170, 40));
+
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(202, 135, 174));
+        jLabel3.setText("PWD/S.C.");
+        TotalRec.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 140, 40));
 
         AvailParkingPanel.add(TotalRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 870, 540));
 
@@ -1234,6 +1249,9 @@ public class dashboard extends javax.swing.JFrame {
     private static javax.swing.JTextField fname;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;

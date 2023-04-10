@@ -161,7 +161,6 @@ public class mpin extends javax.swing.JFrame {
         jLabel1.setText("Please enter your 6 - Digit MPIN");
         kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 210, -1));
 
-        mpinPwField.setBackground(new java.awt.Color(255, 255, 255));
         mpinPwField.setDocument(mpinPwField.getDocument());
         mpinPwField.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
         mpinPwField.setForeground(new java.awt.Color(255, 153, 153));
@@ -186,7 +185,6 @@ public class mpin extends javax.swing.JFrame {
         mpinHeader.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         kGradientPanel1.add(mpinHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 500, 39));
 
-        mpinSubmitBtn.setBackground(new java.awt.Color(255, 255, 255));
         mpinSubmitBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         mpinSubmitBtn.setForeground(new java.awt.Color(255, 255, 255));
         mpinSubmitBtn.setText("SUBMIT");
