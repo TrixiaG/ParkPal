@@ -1,4 +1,7 @@
+Andrian, Binas, 09325460505, PAQ323, 4 Wheeler Car, false, false, 2023-04-10
 Angelito, Cabalo, 09203901093, PDD231, 4 Wheeler Car, true, false, 2023-04-10
+Carl Lawrence, Lontac, 09285430647, PAP109, Motorcycle, true, false, 2023-04-10
+Jan Michael, Miravalles, 09195893518, LTO613, Motorcycle, false, false, 2023-04-10
 Rafael, Ronquillo, 09347268121, RRF317, 4 Wheeler Car, false, false, 2023-04-10
 Reign, Gallego, 09295557415, AER118, Motorcycle, false, true, 2023-04-10
 Rian , Gallego, 09280555392, RMT568, 4 Wheeler Car, true, true, 2023-04-10
