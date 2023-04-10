@@ -248,6 +248,10 @@ public class Implementation{
                 date = fields[7];
                 String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
                 data.add(dataLine);
+                if (noCus > 0) {
+                    noAvail++;
+                }                    
+
             }
             setNoAvail(noAvail);
             scanner.close();

@@ -70,13 +70,7 @@ public class dashboard extends javax.swing.JFrame {
         });
     }
     public void countingCus(){
-        
-        implement.getAvail(implement.getData());
-        int avail = implement.getNoAvail() - implement.getNoCus();
-        String noAvail = Integer.toString(avail);
-        Remain.setText(noAvail);
-        implement.setNoAvail(0);
-        
+
         implement.readData();
         implement.getCustomers(implement.getData());
         int cus = implement.getNoCus();
@@ -90,7 +84,11 @@ public class dashboard extends javax.swing.JFrame {
         noPwd_Sen.setText(noPwd);
         implement.setNoPwd(0);
         
-        
+        implement.getAvail(implement.getData());
+        int avail = 150 - cus;
+        String noAvail = Integer.toString(avail);
+        Remain.setText(noAvail);
+        implement.setNoAvail(0);
         
     }
     
@@ -151,6 +149,8 @@ public class dashboard extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         rb_one = new javax.swing.ButtonGroup();
         rb_two = new javax.swing.ButtonGroup();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         titleBar = new javax.swing.JPanel();
         btnMin = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -182,10 +182,13 @@ public class dashboard extends javax.swing.JFrame {
         TotalRec = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         Remain = new javax.swing.JLabel();
+        availLogo = new javax.swing.JLabel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
         noPwd_Sen = new javax.swing.JLabel();
+        pwdLogo = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
         noCustomer = new javax.swing.JLabel();
+        cusLogo = new javax.swing.JLabel();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -228,6 +231,8 @@ public class dashboard extends javax.swing.JFrame {
             kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jScrollPane2.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -685,24 +690,47 @@ public class dashboard extends javax.swing.JFrame {
         TotalRec.setBackground(new java.awt.Color(255, 255, 255));
         TotalRec.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel2.setkEndColor(new java.awt.Color(255, 145, 144));
+        kGradientPanel2.setkStartColor(new java.awt.Color(239, 142, 152));
+
+        Remain.setFont(new java.awt.Font("Poppins Medium", 0, 100)); // NOI18N
+        Remain.setForeground(new java.awt.Color(255, 255, 255));
+        Remain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Remain.setText("0");
+
+        availLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AvailParkingLogo/avail2.png"))); // NOI18N
+
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(Remain, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+            .addComponent(Remain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(availLogo)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(availLogo)
+                .addGap(18, 18, 18)
                 .addComponent(Remain, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
 
-        TotalRec.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, -1));
+        TotalRec.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 250, 330));
+
+        kGradientPanel4.setkEndColor(new java.awt.Color(239, 142, 152));
+        kGradientPanel4.setkStartColor(new java.awt.Color(195, 133, 177));
+
+        noPwd_Sen.setFont(new java.awt.Font("Poppins Medium", 0, 100)); // NOI18N
+        noPwd_Sen.setForeground(new java.awt.Color(255, 255, 255));
+        noPwd_Sen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        noPwd_Sen.setText("0");
+
+        pwdLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AvailParkingLogo/Pwd.png"))); // NOI18N
 
         javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
         kGradientPanel4.setLayout(kGradientPanel4Layout);
@@ -712,35 +740,60 @@ public class dashboard extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(noPwd_Sen, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pwdLogo)
+                .addGap(96, 96, 96))
         );
         kGradientPanel4Layout.setVerticalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel4Layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(pwdLogo)
+                .addGap(18, 18, 18)
                 .addComponent(noPwd_Sen, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
 
-        TotalRec.add(kGradientPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
+        TotalRec.add(kGradientPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, 330));
+
+        kGradientPanel5.setkEndColor(new java.awt.Color(195, 133, 177));
+        kGradientPanel5.setkGradientFocus(400);
+        kGradientPanel5.setkStartColor(new java.awt.Color(94, 114, 234));
+
+        noCustomer.setFont(new java.awt.Font("Poppins Medium", 0, 100)); // NOI18N
+        noCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        noCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        noCustomer.setText("0");
+        noCustomer.setToolTipText("");
+
+        cusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AvailParkingLogo/Cus.png"))); // NOI18N
 
         javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
         kGradientPanel5.setLayout(kGradientPanel5Layout);
         kGradientPanel5Layout.setHorizontalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel5Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(noCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(noCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(cusLogo)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         kGradientPanel5Layout.setVerticalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(cusLogo)
+                .addGap(26, 26, 26)
                 .addComponent(noCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
 
-        TotalRec.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        TotalRec.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 330));
 
         AvailParkingPanel.add(TotalRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 870, 540));
 
@@ -1169,16 +1222,20 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel Remain;
     private javax.swing.JButton SubmitAddCusBtn;
     private javax.swing.JPanel TotalRec;
+    private javax.swing.JLabel availLogo;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnExit1;
     private javax.swing.JButton btnMin;
     private javax.swing.JButton btnMin1;
+    private javax.swing.JLabel cusLogo;
     private static javax.swing.JTable dashTabled;
     private static javax.swing.JTextField fname;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
@@ -1198,6 +1255,7 @@ public class dashboard extends javax.swing.JFrame {
     private static javax.swing.JTextField pnum;
     private javax.swing.JLabel pwdFamLabel;
     private javax.swing.JLabel pwdLabel;
+    private javax.swing.JLabel pwdLogo;
     private static javax.swing.JRadioButton r1;
     private static javax.swing.JRadioButton r2;
     private javax.swing.ButtonGroup rb_one;

@@ -61,10 +61,8 @@ public class welcome extends javax.swing.JFrame {
         setTitle("Parkpal");
         setBackground(new java.awt.Color(94, 114, 235));
         setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
-        setMaximumSize(new java.awt.Dimension(1280, 700));
         setName("HomePageFrame"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
