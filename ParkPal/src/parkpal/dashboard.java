@@ -1001,6 +1001,21 @@ public class dashboard extends javax.swing.JFrame {
         implement.setMnum(mobnum);
         implement.setPnum(platenum);
         implement.setVtype(vehicle_type);
+        
+              if (fname.getText().isBlank()){
+            JOptionPane.showMessageDialog(null,"Please enter  first name!") ;
+        } else if (lname.getText().isBlank()){
+            JOptionPane.showMessageDialog(null,"Please enter  last name!") ;
+        } else if (mnum.getText().isBlank()){
+            JOptionPane.showMessageDialog(null,"Please enter  mobile number!") ;
+        } else if (pnum.getText().isBlank()){
+            JOptionPane.showMessageDialog(null,"Please enter  plate number!") ;
+        } else if (!r1.isSelected() && !r2.isSelected()){
+            JOptionPane.showMessageDialog(null,"Please select if you're a PWD/S.C.!") ;
+        } else if (!p1.isSelected() && !p2.isSelected()){
+            JOptionPane.showMessageDialog(null,"Please select if you have a PWD/S.C. in your family!") ;
+
+        } else {
         if(r1.isSelected()){
             implement.setIsPwd_Sen(true);
         }
@@ -1026,7 +1041,7 @@ public class dashboard extends javax.swing.JFrame {
                 hPwd_Sen, 
                 date);
         clear();
-        
+        }
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
 
     private void mnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mnumKeyTyped
