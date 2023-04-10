@@ -6,7 +6,9 @@ package parkpal;
 
 import java.awt.Frame;
 import java.awt.geom.RoundRectangle2D;
+import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -190,6 +192,11 @@ public class mpin extends javax.swing.JFrame {
         mpinSubmitBtn.setText("SUBMIT");
         mpinSubmitBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         mpinSubmitBtn.setContentAreaFilled(false);
+        mpinSubmitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mpinSubmitBtnActionPerformed(evt);
+            }
+        });
         kGradientPanel1.add(mpinSubmitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 80, 34));
 
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
@@ -247,6 +254,19 @@ public class mpin extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_titleBarMousePressed
+
+    private void mpinSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpinSubmitBtnActionPerformed
+         if (Arrays.equals(mpinPwField.getPassword(), new char[]{})) {
+            JOptionPane.showMessageDialog(null,"Please enter PIN!");
+        } else if (!Arrays.equals(mpinPwField.getPassword(), new char[]{'1','2','3','4','5','6'})){
+            JOptionPane.showMessageDialog(null,"Incorrect PIN. Please try again.", "Incorrect PIN", JOptionPane.ERROR_MESSAGE);
+        } else if (Arrays.equals(mpinPwField.getPassword(), new char[]{'1','2','3','4','5','6'})){
+               dashboard dashWin = new dashboard();
+               dashWin.setVisible(true);
+               dashWin.pack();
+               this.dispose();
+        }
+    }//GEN-LAST:event_mpinSubmitBtnActionPerformed
 
     /**
      * @param args the command line arguments
