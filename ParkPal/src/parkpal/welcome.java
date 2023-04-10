@@ -19,6 +19,8 @@ public class welcome extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
     int xMouse;
     int yMouse;
+    String Username = "AdminA";
+    char[] Password = new char[]{'@','D','m','1','n','0','0'};
     
     public welcome() {
         initComponents();
@@ -299,16 +301,17 @@ public class welcome extends javax.swing.JFrame {
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
-        
+        String User = usernameTxtField.getText();
+        char[] Pass = passwordPwField.getPassword();
         if(usernameTxtField.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Please enter  username!") ;
-        } else if (Arrays.equals(passwordPwField.getPassword(), new char[]{})) {
+        } else if (Arrays.equals(Pass, new char[]{})) {
             JOptionPane.showMessageDialog(null,"Please enter password!");
-        } else if(!usernameTxtField.getText().equals("AdminA")){
+        } else if(!User.equals(Username)){
             JOptionPane.showMessageDialog(null, "Incorrect username. Please try again.", "Incorrect Username", JOptionPane.ERROR_MESSAGE);
-        } else if (!Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'})){
+        } else if (!Arrays.equals(Pass, Password)){
             JOptionPane.showMessageDialog(null,"Incorrect password. Please try again.", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
-        } else if (Arrays.equals(passwordPwField.getPassword(), new char[]{'@','D','m','1','n','0','0'}) && usernameTxtField.getText().equals("AdminA")){
+        } else if (Arrays.equals(Pass, Password) && User.equals(Username)){
                mpin mpinWin = new mpin();
                mpinWin.setVisible(true);
                mpinWin.pack();

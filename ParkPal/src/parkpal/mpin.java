@@ -23,6 +23,7 @@ public class mpin extends javax.swing.JFrame {
     private static final int CORNER_RADIUS = 30;
     int xMouse;
     int yMouse;
+    char[] pin = new char[]{'1','2','3','4','5','6'};
     
     public mpin() {
         initComponents();
@@ -256,9 +257,9 @@ public class mpin extends javax.swing.JFrame {
     private void mpinSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mpinSubmitBtnActionPerformed
          if (Arrays.equals(mpinPwField.getPassword(), new char[]{})) {
             JOptionPane.showMessageDialog(null,"Please enter PIN!");
-        } else if (!Arrays.equals(mpinPwField.getPassword(), new char[]{'1','2','3','4','5','6'})){
+        } else if (!Arrays.equals(mpinPwField.getPassword(), pin)){
             JOptionPane.showMessageDialog(null,"Incorrect PIN. Please try again.", "Incorrect PIN", JOptionPane.ERROR_MESSAGE);
-        } else if (Arrays.equals(mpinPwField.getPassword(), new char[]{'1','2','3','4','5','6'})){
+        } else if (Arrays.equals(mpinPwField.getPassword(), pin)){
                dashboard dashWin = new dashboard();
                dashWin.setVisible(true);
                dashWin.pack();
