@@ -50,8 +50,9 @@ public class dashboard extends javax.swing.JFrame {
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
         JTableHeader header = dashTabled.getTableHeader();
-        header.setFont(new Font("Poppins Medium", Font.PLAIN, 12)); // set font for the header
-        header.setBackground(Color.GRAY); // set background color for the header
+        header.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header.setForeground(Color.white);
         for (int i = 0; i < dashTabled.getColumnCount(); i++) {
             TableColumn column = dashTabled.getColumnModel().getColumn(i);
         }
@@ -554,8 +555,9 @@ public class dashboard extends javax.swing.JFrame {
         });
         dashTabled.setFocusable(false);
         dashTabled.setGridColor(new java.awt.Color(255, 255, 255));
-        dashTabled.setSelectionBackground(new java.awt.Color(255, 145, 144));
-        dashTabled.setSelectionForeground(new java.awt.Color(94, 114, 235));
+        dashTabled.setRowHeight(50);
+        dashTabled.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        dashTabled.setSelectionForeground(new java.awt.Color(0, 0, 0));
         dashTabled.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(dashTabled);
         if (dashTabled.getColumnModel().getColumnCount() > 0) {
