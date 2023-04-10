@@ -262,6 +262,7 @@ public class dashboard extends javax.swing.JFrame {
         btnMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/min.png"))); // NOI18N
         btnMin.setBorder(null);
         btnMin.setContentAreaFilled(false);
+        btnMin.setFocusPainted(false);
         btnMin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnMin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnMin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -287,6 +288,7 @@ public class dashboard extends javax.swing.JFrame {
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TitleBar/ex1.png"))); // NOI18N
         btnExit.setBorder(null);
         btnExit.setContentAreaFilled(false);
+        btnExit.setFocusPainted(false);
         btnExit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -894,25 +896,37 @@ public class dashboard extends javax.swing.JFrame {
         vehicleLabel.setText("Vehicle Type:");
         AddCusPanel.add(vehicleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, 36));
 
+        r1.setBackground(new java.awt.Color(255, 255, 255));
         rb_one.add(r1);
         r1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r1.setText("Yes");
+        r1.setBorder(null);
         r1.setBorderPainted(true);
+        r1.setFocusPainted(false);
         AddCusPanel.add(r1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
 
+        r2.setBackground(new java.awt.Color(255, 255, 255));
         rb_one.add(r2);
         r2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         r2.setText("No");
+        r2.setBorder(null);
+        r2.setFocusPainted(false);
         AddCusPanel.add(r2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
+        p2.setBackground(new java.awt.Color(255, 255, 255));
         rb_two.add(p2);
         p2.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p2.setText("No");
+        p2.setBorder(null);
+        p2.setFocusPainted(false);
         AddCusPanel.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, -1, -1));
 
+        p1.setBackground(new java.awt.Color(255, 255, 255));
         rb_two.add(p1);
         p1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
         p1.setText("Yes");
+        p1.setBorder(null);
+        p1.setFocusPainted(false);
         AddCusPanel.add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, -1, -1));
 
         pwdFamLabel.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
@@ -925,6 +939,15 @@ public class dashboard extends javax.swing.JFrame {
         SubmitAddCusBtn.setText("SUBMIT");
         SubmitAddCusBtn.setBorder(null);
         SubmitAddCusBtn.setContentAreaFilled(false);
+        SubmitAddCusBtn.setFocusPainted(false);
+        SubmitAddCusBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SubmitAddCusBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SubmitAddCusBtnMouseExited(evt);
+            }
+        });
         SubmitAddCusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubmitAddCusBtnActionPerformed(evt);
@@ -1226,6 +1249,15 @@ public class dashboard extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_titleBarMousePressed
+
+    private void SubmitAddCusBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitAddCusBtnMouseEntered
+        SubmitAddCusBtn.setForeground(Color.BLACK);
+    }//GEN-LAST:event_SubmitAddCusBtnMouseEntered
+
+    private void SubmitAddCusBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitAddCusBtnMouseExited
+        // TODO add your handling code here:[255,145,144]
+        SubmitAddCusBtn.setForeground(new java.awt.Color(255,145,144));
+    }//GEN-LAST:event_SubmitAddCusBtnMouseExited
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
