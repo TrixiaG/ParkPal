@@ -6,6 +6,7 @@ Rafael, Ronquillo, 12222222222, 222222, 4 Wheeler Car, false, false, 2023-04-09
 Cristlle, Aguilar, 55555555555, 555555, 4 Wheeler Car, false, false, 2023-04-09
 Arvin, Enzon, 99999999999, 999999, 4 Wheeler Car, false, false, 2023-04-09
 Angelito, Cabalo, 09203901093, PDD231, 4 Wheeler Car, true, false, 2023-04-10
+Rafael, Ronquillo, 09347268121, RRF317, 4 Wheeler Car, false, false, 2023-04-10
 Charles, Aguilar, 34312312312, 812388, Motorcycle, false, false, 2023-04-09
 Reign, Gallego, 69969696969, YVAN69, Motorcycle, false, false, 2023-04-09
 Selena, Gomez, 09123456788, FUC123, Motorcycle, true, false, 2023-04-10
