@@ -46,6 +46,7 @@ public class dashboard extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         load();
+        countingCus();
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
         JTableHeader header = dashTabled.getTableHeader();
@@ -67,6 +68,30 @@ public class dashboard extends javax.swing.JFrame {
             }
 
         });
+    }
+    public void countingCus(){
+        
+        implement.getAvail(implement.getData());
+        int avail = implement.getNoAvail() - implement.getNoCus();
+        String noAvail = Integer.toString(avail);
+        Remain.setText(noAvail);
+        implement.setNoAvail(0);
+        
+        implement.readData();
+        implement.getCustomers(implement.getData());
+        int cus = implement.getNoCus();
+        String noCus = Integer.toString(cus);
+        noCustomer.setText(noCus);
+        implement.setNoCus(0);
+        
+        implement.getPwd(implement.getData());
+        int pwd = implement.getNoPwd();
+        String noPwd = Integer.toString(pwd);
+        noPwd_Sen.setText(noPwd);
+        implement.setNoPwd(0);
+        
+        
+        
     }
     
     public void addTable(String first_name, 
@@ -156,8 +181,11 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLabel2 = new javax.swing.JLabel();
         TotalRec = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
+        Remain = new javax.swing.JLabel();
         kGradientPanel4 = new keeptoo.KGradientPanel();
+        noPwd_Sen = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
+        noCustomer = new javax.swing.JLabel();
         AddCusPanel = new javax.swing.JPanel();
         DashboardLine1 = new keeptoo.KGradientPanel();
         DashboardLabel1 = new javax.swing.JLabel();
@@ -661,11 +689,17 @@ public class dashboard extends javax.swing.JFrame {
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(Remain, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addComponent(Remain, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
 
         TotalRec.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, -1));
@@ -674,11 +708,17 @@ public class dashboard extends javax.swing.JFrame {
         kGradientPanel4.setLayout(kGradientPanel4Layout);
         kGradientPanel4Layout.setHorizontalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(kGradientPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(noPwd_Sen, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         kGradientPanel4Layout.setVerticalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel4Layout.createSequentialGroup()
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addComponent(noPwd_Sen, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
 
         TotalRec.add(kGradientPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
@@ -687,11 +727,17 @@ public class dashboard extends javax.swing.JFrame {
         kGradientPanel5.setLayout(kGradientPanel5Layout);
         kGradientPanel5Layout.setHorizontalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(noCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         kGradientPanel5Layout.setVerticalGroup(
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel5Layout.createSequentialGroup()
+                .addContainerGap(177, Short.MAX_VALUE)
+                .addComponent(noCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         TotalRec.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
@@ -831,6 +877,7 @@ public class dashboard extends javax.swing.JFrame {
 
     private void BtnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddCustomerActionPerformed
         DashboardTab.setSelectedIndex(1);
+        countingCus();
     }//GEN-LAST:event_BtnAddCustomerActionPerformed
 
     private void BtnAvailableParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvailableParkingActionPerformed
@@ -908,6 +955,7 @@ public class dashboard extends javax.swing.JFrame {
                 hPwd_Sen, 
                 date);
         clear();
+        
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
 
     private void mnumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mnumKeyTyped
@@ -1118,6 +1166,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JTabbedPane DashboardTab;
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel Remain;
     private javax.swing.JButton SubmitAddCusBtn;
     private javax.swing.JPanel TotalRec;
     private javax.swing.JButton btnExit;
@@ -1141,6 +1190,8 @@ public class dashboard extends javax.swing.JFrame {
     private static javax.swing.JTextField mnum;
     private javax.swing.JLabel mobileNumberLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel noCustomer;
+    private javax.swing.JLabel noPwd_Sen;
     private static javax.swing.JRadioButton p1;
     private static javax.swing.JRadioButton p2;
     private javax.swing.JLabel plateNumberLabel;

@@ -29,6 +29,33 @@ public class Implementation{
     static boolean havePwd_Sen = false;
     static ArrayList<String> data = new ArrayList<String>();
     static String date = null;
+    static int noCus = 0;
+    static int noPwd = 0;
+    static int noAvail = 150;
+
+    public static int getNoAvail() {
+        return noAvail;
+    }
+
+    public static void setNoAvail(int noAvail) {
+        Implementation.noAvail = noAvail;
+    }
+
+    public static int getNoCus() {
+        return noCus;
+    }
+
+    public static void setNoCus(int noCus) {
+        Implementation.noCus = noCus;
+    }
+
+    public static int getNoPwd() {
+        return noPwd;
+    }
+
+    public static void setNoPwd(int noPwd) {
+        Implementation.noPwd = noPwd;
+    }
 
     public static ArrayList<String> getData() {
         return data;
@@ -146,6 +173,94 @@ public class Implementation{
             e.printStackTrace();
         }
     }
+    
+    public void getCustomers(ArrayList<String> data) {
+        int n = data.size();
+        try {
+            Scanner scanner = new Scanner(new File(FILENAME));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] fields = line.split(", ");
+                fname = fields[0];
+                lname = fields[1];
+                mnum = fields[2];
+                pnum = fields[3];
+                vtype = fields[4];
+                isPwd_Sen = Boolean.valueOf(fields[5]);
+                havePwd_Sen = Boolean.valueOf(fields[6]);
+                date = fields[7];
+                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+                data.add(dataLine);
+                noCus++;
+            }
+            setNoCus(noCus);
+            scanner.close();
+            System.out.println(noCus);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+    public void getPwd(ArrayList<String> data) {
+        int n = data.size();
+        try {
+            Scanner scanner = new Scanner(new File(FILENAME));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] fields = line.split(", ");
+                fname = fields[0];
+                lname = fields[1];
+                mnum = fields[2];
+                pnum = fields[3];
+                vtype = fields[4];
+                isPwd_Sen = Boolean.valueOf(fields[5]);
+                havePwd_Sen = Boolean.valueOf(fields[6]);
+                date = fields[7];
+                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+                data.add(dataLine);
+                if (isPwd_Sen || havePwd_Sen) {
+                    noPwd++;
+                }
+            }
+            setNoPwd(noPwd);
+            scanner.close();
+            System.out.println(noPwd);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+    
+    public void getAvail(ArrayList<String> data) {
+        int n = data.size();
+        try {
+            Scanner scanner = new Scanner(new File(FILENAME));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] fields = line.split(", ");
+                fname = fields[0];
+                lname = fields[1];
+                mnum = fields[2];
+                pnum = fields[3];
+                vtype = fields[4];
+                isPwd_Sen = Boolean.valueOf(fields[5]);
+                havePwd_Sen = Boolean.valueOf(fields[6]);
+                date = fields[7];
+                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+                data.add(dataLine);
+            }
+            setNoAvail(noAvail);
+            scanner.close();
+            System.out.println(noAvail);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        data.clear();
+    }
+    
+    
+    
+    //===================================================================
     public static void InsertSort(ArrayList<String> data) {
         int n = data.size();
         for (int i = 1; i < n; i++) {
