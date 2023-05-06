@@ -54,6 +54,7 @@ public class welcome extends javax.swing.JFrame {
         ShowPasswordCheckbox = new javax.swing.JCheckBox();
         LogInButton = new javax.swing.JButton();
         HomePageImage = new javax.swing.JLabel();
+        bgVideo = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -164,6 +165,7 @@ public class welcome extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 145, 144));
         kGradientPanel1.setkGradientFocus(300);
         kGradientPanel1.setkStartColor(new java.awt.Color(94, 114, 235));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ParkPalHeader.setFont(new java.awt.Font("Poppins Medium", 0, 50)); // NOI18N
         ParkPalHeader.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,16 +175,20 @@ public class welcome extends javax.swing.JFrame {
         ParkPalHeader.setIconTextGap(6);
         ParkPalHeader.setMinimumSize(new java.awt.Dimension(100, 100));
         ParkPalHeader.setPreferredSize(new java.awt.Dimension(100, 19));
+        kGradientPanel1.add(ParkPalHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 152, 199, 66));
 
         UserNameLabel.setFont(new java.awt.Font("Poppins Light", 1, 12)); // NOI18N
         UserNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         UserNameLabel.setText("Username");
+        kGradientPanel1.add(UserNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 287, 75, -1));
 
         PasswordLabel.setFont(new java.awt.Font("Poppins Light", 1, 12)); // NOI18N
         PasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
         PasswordLabel.setText("Password");
+        kGradientPanel1.add(PasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 385, 75, -1));
 
         ParkPalLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo7.png"))); // NOI18N
+        kGradientPanel1.add(ParkPalLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 135, -1, 99));
 
         usernameTxtField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         usernameTxtField.setForeground(new java.awt.Color(102, 0, 102));
@@ -195,11 +201,13 @@ public class welcome extends javax.swing.JFrame {
                 usernameTxtFieldActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(usernameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 312, 335, 48));
 
         passwordPwField.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         passwordPwField.setForeground(new java.awt.Color(102, 0, 102));
         passwordPwField.setToolTipText("");
         passwordPwField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        kGradientPanel1.add(passwordPwField, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 410, 335, 48));
 
         ShowPasswordCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         ShowPasswordCheckbox.setFont(new java.awt.Font("Poppins Light", 2, 12)); // NOI18N
@@ -212,6 +220,7 @@ public class welcome extends javax.swing.JFrame {
                 ShowPasswordCheckboxActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(ShowPasswordCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 476, 131, -1));
 
         LogInButton.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         LogInButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,54 +232,14 @@ public class welcome extends javax.swing.JFrame {
                 LogInButtonActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(LogInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 515, 335, 49));
 
         HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
         HomePageImage.setOpaque(true);
+        kGradientPanel1.add(HomePageImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 0, 651, -1));
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(passwordPwField)
-                    .addComponent(UserNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(ParkPalLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ParkPalHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(usernameTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-                    .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ShowPasswordCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LogInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                .addComponent(HomePageImage, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ParkPalLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(ParkPalHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)))
-                .addGap(53, 53, 53)
-                .addComponent(UserNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usernameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(PasswordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordPwField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ShowPasswordCheckbox)
-                .addGap(18, 18, 18)
-                .addComponent(LogInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(HomePageImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-        );
+        bgVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/BackGround.gif"))); // NOI18N
+        kGradientPanel1.add(bgVideo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-430, 20, 1280, 710));
 
         javax.swing.GroupLayout HomePagePanelLayout = new javax.swing.GroupLayout(HomePagePanel);
         HomePagePanel.setLayout(HomePagePanelLayout);
@@ -419,6 +388,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JCheckBox ShowPasswordCheckbox;
     private javax.swing.JLabel UserNameLabel;
+    private javax.swing.JLabel bgVideo;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnMin;
     private javax.swing.JComboBox<String> jComboBox1;

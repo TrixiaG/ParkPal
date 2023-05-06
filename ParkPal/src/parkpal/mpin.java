@@ -57,6 +57,7 @@ public class mpin extends javax.swing.JFrame {
         mpinPwField = new javax.swing.JPasswordField(4);
         mpinHeader = new javax.swing.JLabel();
         mpinSubmitBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 500));
@@ -198,6 +199,9 @@ public class mpin extends javax.swing.JFrame {
         });
         kGradientPanel1.add(mpinSubmitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 80, 34));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/BackGround.gif"))); // NOI18N
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 500, 480));
+
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
@@ -306,6 +310,7 @@ public class mpin extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnMin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel mpinHeader;
     private javax.swing.JLabel mpinLogo;
