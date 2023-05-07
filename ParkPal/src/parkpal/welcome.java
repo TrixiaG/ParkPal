@@ -281,9 +281,9 @@ public class welcome extends javax.swing.JFrame {
         } else if (!Arrays.equals(Pass, Password)){
             JOptionPane.showMessageDialog(null,"Incorrect password. Please try again.", "Incorrect Password", JOptionPane.ERROR_MESSAGE);
         } else if (Arrays.equals(Pass, Password) && User.equals(Username)){
-               mpin mpinWin = new mpin();
-               mpinWin.setVisible(true);
-               mpinWin.pack();
+               LoadingScreen ls = new  LoadingScreen();
+               ls.setVisible(true);
+               ls.pack();
                this.dispose();
         }
     }//GEN-LAST:event_LogInButtonActionPerformed
