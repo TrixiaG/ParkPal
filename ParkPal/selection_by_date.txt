@@ -1,15 +1,1 @@
-Angelito, Cabalo, 09203901093, PDD231, 4 Wheeler Car, true, false, 2023-04-10
-Taylor, Swift, 09123456788, JOE143, Motorcycle, true, false, 2023-04-10
-Victoria, Cabalo, 09231534234, PAZ101, Motorcycle, false, false, 2023-04-10
-Rafael, Ronquillo, 09347268121, RRF317, 4 Wheeler Car, false, false, 2023-04-10
-Rian , Gallego, 09280555392, RMT568, 4 Wheeler Car, true, true, 2023-04-10
-Reign, Gallego, 09295557415, AER118, Motorcycle, false, true, 2023-04-10
-Andrian, Binas, 09325460505, PAQ323, 4 Wheeler Car, false, false, 2023-04-10
-Jan Michael, Miravalles, 09195893518, LTO613, Motorcycle, false, false, 2023-04-10
-Carl Lawrence, Lontac, 09285430647, PAP109, Motorcycle, true, false, 2023-04-10
-Jake, Sully, 09085434698, RMG918, 4 Wheeler Car, false, true, 2023-04-10
-John, Smith, 09123456789, ABC456, Motorcycle, true, false, 2023-12-31
-Ronaldo, De Lima, 09123456789, MNB987, Motorcycle, false, true, 2024-02-01
-Samantha, Lee, 09187654321, QWE123, 4 Wheeler Car, true, false, 2024-06-15
-Jasmine, Tan, 09187654321, DEF789, 4 Wheeler Car, false, true, 2024-09-28
-Mark, Garcia, 09123456789, GHI012, Motorcycle, true, true, 2024-11-11
+Reign, Gallego, 09202687607, YVN696, 4 Wheeler Car, false, false, 2023-05-10

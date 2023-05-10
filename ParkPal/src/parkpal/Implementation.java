@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,8 @@ public class Implementation{
     static String vtype = null;
     static boolean isPwd_Sen = false;
     static boolean havePwd_Sen = false;
-    static ArrayList<String> data = new ArrayList<String>();
+    static ArrayList<String> data = new ArrayList<>();
+    private LinkedList<String> queue = new LinkedList<>();
     static String date = null;
     static int noCus = 0;
     static int noPwd = 0;
@@ -136,7 +138,6 @@ public class Implementation{
         data.add(String.valueOf(Implementation.isIsPwd_Sen()));
         data.add(String.valueOf(Implementation.isHavePwd_Sen()));
         data.add(Implementation.getDate());
-        
         try {
             FileWriter fw = new FileWriter(FILENAME,true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -150,6 +151,7 @@ public class Implementation{
         data.clear();
     }
     public static void readData() {
+        
         try {
             Scanner scanner = new Scanner(new File(FILENAME));
         while (scanner.hasNextLine()) {
@@ -173,7 +175,6 @@ public class Implementation{
     }
     
     public void getCustomers(ArrayList<String> data) {
-        int n = data.size();
         try {
             Scanner scanner = new Scanner(new File(FILENAME));
             while (scanner.hasNextLine()) {

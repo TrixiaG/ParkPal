@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -47,6 +49,11 @@ public class dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         load();
         countingCus();
+        firstFile();
+        secondFile();
+        thirdFile();
+        forthFile();
+        fifthFile();
         DashboardTab.setSelectedIndex(0);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
         JTableHeader header = dashTabled.getTableHeader();
@@ -55,6 +62,41 @@ public class dashboard extends javax.swing.JFrame {
         header.setForeground(Color.white);
         for (int i = 0; i < dashTabled.getColumnCount(); i++) {
             TableColumn column = dashTabled.getColumnModel().getColumn(i);
+        }
+        JTableHeader header1 = firstTable.getTableHeader();
+        header1.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header1.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header1.setForeground(Color.white);
+        for (int i = 0; i < firstTable.getColumnCount(); i++) {
+            TableColumn column = firstTable.getColumnModel().getColumn(i);
+        }
+        JTableHeader header2 = secondTable.getTableHeader();
+        header2.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header2.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header2.setForeground(Color.white);
+        for (int i = 0; i < secondTable.getColumnCount(); i++) {
+            TableColumn column = secondTable.getColumnModel().getColumn(i);
+        }
+        JTableHeader header3 = thirdTable.getTableHeader();
+        header3.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header3.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header3.setForeground(Color.white);
+        for (int i = 0; i < thirdTable.getColumnCount(); i++) {
+            TableColumn column = thirdTable.getColumnModel().getColumn(i);
+        }
+        JTableHeader header4 = forthTable.getTableHeader();
+        header4.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header4.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header4.setForeground(Color.white);
+        for (int i = 0; i < forthTable.getColumnCount(); i++) {
+            TableColumn column = forthTable.getColumnModel().getColumn(i);
+        }
+        JTableHeader header5 = fifthTable.getTableHeader();
+        header5.setFont(new Font("Poppins Medium", Font.BOLD, 12)); // set font for the header
+        header5.setBackground(new java.awt.Color(94, 114, 234)); // set background color for the header
+        header5.setForeground(Color.white);
+        for (int i = 0; i < fifthTable.getColumnCount(); i++) {
+            TableColumn column = fifthTable.getColumnModel().getColumn(i);
         }
         PlainDocument document = (PlainDocument) pnum.getDocument();
         document.setDocumentFilter(new DocumentFilter() {
@@ -114,6 +156,166 @@ public class dashboard extends javax.swing.JFrame {
                 hPwd_Sen, 
                 date
             });
+    }
+    public void firstFile(){
+        File file = new File("gate1.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) firstTable.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split("\n");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void secondFile(){
+        File file = new File("gate2.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) secondTable.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split("\n");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void thirdFile(){
+        File file = new File("gate3.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) thirdTable.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split("\n");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void forthFile(){
+        File file = new File("gate4.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) forthTable.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split("\n");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fifthFile(){
+        File file = new File("gate5.txt");
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            DefaultTableModel model = (DefaultTableModel) fifthTable.getModel();
+            
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length ; i++){
+                String[] line = lines[i].toString().trim().split("\n");
+                model.addRow(line);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void addFirstTable(String platenum){
+        DefaultTableModel t;
+        
+        t = (DefaultTableModel) firstTable.getModel();
+            t.addRow(new Object[]{platenum});   
+            
+        try {
+            FileWriter fw = new FileWriter("gate1.txt", true);
+            int rows = t.getRowCount();
+            Object value = t.getValueAt(rows - 1, 0); // get the last added value
+            fw.write(value.toString() + "\n"); // write the last added value
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void addSecondTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) secondTable.getModel();
+            t.addRow(new Object[]{platenum});   
+            
+        try {
+            FileWriter fw = new FileWriter("gate2.txt", true);
+            int rows = t.getRowCount();
+            Object value = t.getValueAt(rows - 1, 0); // get the last added value
+            fw.write(value.toString() + "\n"); // write the last added value
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void addThirdTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) thirdTable.getModel();
+            t.addRow(new Object[]{platenum});   
+            
+        try {
+            FileWriter fw = new FileWriter("gate3.txt", true);
+            int rows = t.getRowCount();
+            Object value = t.getValueAt(rows - 1, 0); // get the last added value
+            fw.write(value.toString() + "\n"); // write the last added value
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void addForthTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) forthTable.getModel();
+            t.addRow(new Object[]{platenum});   
+            
+        try {
+            FileWriter fw = new FileWriter("gate4.txt", true);
+            int rows = t.getRowCount();
+            Object value = t.getValueAt(rows - 1, 0); // get the last added value
+            fw.write(value.toString() + "\n"); // write the last added value
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void addFifthTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) fifthTable.getModel();
+            t.addRow(new Object[]{platenum});   
+            
+        try {
+            FileWriter fw = new FileWriter("gate5.txt", true);
+            int rows = t.getRowCount();
+            Object value = t.getValueAt(rows - 1, 0); // get the last added value
+            fw.write(value.toString() + "\n"); // write the last added value
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     private void clear(){
         fname.setText("");
@@ -175,10 +377,12 @@ public class dashboard extends javax.swing.JFrame {
         dashTabled = new javax.swing.JTable();
         sortVtypeBtn = new javax.swing.JButton();
         DashboardLine3 = new keeptoo.KGradientPanel();
+        searchBtn = new javax.swing.JButton();
         sortFnameBtn = new javax.swing.JButton();
         sortLnameBtn1 = new javax.swing.JButton();
         sortPnumberBtn1 = new javax.swing.JButton();
         sortVtypeBtn1 = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
         AvailParkingPanel = new javax.swing.JPanel();
         DashboardLine2 = new keeptoo.KGradientPanel();
         DashboardLabel2 = new javax.swing.JLabel();
@@ -215,7 +419,22 @@ public class dashboard extends javax.swing.JFrame {
         p1 = new javax.swing.JRadioButton();
         pwdFamLabel = new javax.swing.JLabel();
         SubmitAddCusBtn = new javax.swing.JButton();
-        ParkingVIew = new javax.swing.JPanel();
+        ParkingView = new javax.swing.JPanel();
+        fifthPark = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        fifthTable = new javax.swing.JTable();
+        thirdPark = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        thirdTable = new javax.swing.JTable();
+        forthPark = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        forthTable = new javax.swing.JTable();
+        firstPark = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        firstTable = new javax.swing.JTable();
+        secondPark = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        secondTable = new javax.swing.JTable();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -562,7 +781,7 @@ public class dashboard extends javax.swing.JFrame {
         DashboardLine.setLayout(DashboardLineLayout);
         DashboardLineLayout.setHorizontalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         DashboardLineLayout.setVerticalGroup(
             DashboardLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -606,7 +825,7 @@ public class dashboard extends javax.swing.JFrame {
             dashTabled.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 840, 500));
+        Dashboardpanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 840, 440));
 
         sortVtypeBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortVtypeBtn.setForeground(new java.awt.Color(233, 123, 122));
@@ -621,7 +840,7 @@ public class dashboard extends javax.swing.JFrame {
                 sortVtypeBtnActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortVtypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 160, 30));
+        Dashboardpanel.add(sortVtypeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 225, 160, 30));
 
         DashboardLine3.setkEndColor(new java.awt.Color(255, 145, 144));
         DashboardLine3.setkStartColor(new java.awt.Color(94, 114, 235));
@@ -639,6 +858,20 @@ public class dashboard extends javax.swing.JFrame {
 
         Dashboardpanel.add(DashboardLine3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 870, -1));
 
+        searchBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        searchBtn.setForeground(new java.awt.Color(96, 114, 233));
+        searchBtn.setText("Search");
+        searchBtn.setToolTipText("");
+        searchBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(96, 114, 233), 1, true));
+        searchBtn.setContentAreaFilled(false);
+        searchBtn.setFocusPainted(false);
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+        Dashboardpanel.add(searchBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, 160, 30));
+
         sortFnameBtn.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortFnameBtn.setForeground(new java.awt.Color(96, 114, 233));
         sortFnameBtn.setText("SORT BY FIRST NAME");
@@ -651,7 +884,7 @@ public class dashboard extends javax.swing.JFrame {
                 sortFnameBtnActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, 30));
+        Dashboardpanel.add(sortFnameBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 225, 160, 30));
 
         sortLnameBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortLnameBtn1.setForeground(new java.awt.Color(197, 133, 176));
@@ -666,7 +899,7 @@ public class dashboard extends javax.swing.JFrame {
                 sortLnameBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 160, 30));
+        Dashboardpanel.add(sortLnameBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 225, 160, 30));
 
         sortPnumberBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortPnumberBtn1.setForeground(new java.awt.Color(235, 141, 155));
@@ -681,7 +914,7 @@ public class dashboard extends javax.swing.JFrame {
                 sortPnumberBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortPnumberBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 160, 30));
+        Dashboardpanel.add(sortPnumberBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 225, 160, 30));
 
         sortVtypeBtn1.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
         sortVtypeBtn1.setForeground(new java.awt.Color(255, 145, 144));
@@ -696,7 +929,10 @@ public class dashboard extends javax.swing.JFrame {
                 sortVtypeBtn1ActionPerformed(evt);
             }
         });
-        Dashboardpanel.add(sortVtypeBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 160, 30));
+        Dashboardpanel.add(sortVtypeBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 225, 160, 30));
+
+        searchField.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        Dashboardpanel.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 660, 30));
 
         DashboardTab.addTab("tab3", Dashboardpanel);
 
@@ -989,22 +1225,221 @@ public class dashboard extends javax.swing.JFrame {
 
         DashboardTab.addTab("tab1", AddCusPanel);
 
-        ParkingVIew.setBackground(new java.awt.Color(255, 255, 255));
+        ParkingView.setBackground(new java.awt.Color(255, 255, 255));
+        ParkingView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout ParkingVIewLayout = new javax.swing.GroupLayout(ParkingVIew);
-        ParkingVIew.setLayout(ParkingVIewLayout);
-        ParkingVIewLayout.setHorizontalGroup(
-            ParkingVIewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+        fifthTable.setFont(new java.awt.Font("Poppins Medium", 1, 12)); // NOI18N
+        fifthTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Gate 2"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        fifthTable.setToolTipText("");
+        fifthTable.setFocusable(false);
+        fifthTable.setOpaque(false);
+        fifthTable.setRowHeight(21);
+        fifthTable.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        jScrollPane7.setViewportView(fifthTable);
+        if (fifthTable.getColumnModel().getColumnCount() > 0) {
+            fifthTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout fifthParkLayout = new javax.swing.GroupLayout(fifthPark);
+        fifthPark.setLayout(fifthParkLayout);
+        fifthParkLayout.setHorizontalGroup(
+            fifthParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fifthParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        ParkingVIewLayout.setVerticalGroup(
-            ParkingVIewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 739, Short.MAX_VALUE)
+        fifthParkLayout.setVerticalGroup(
+            fifthParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fifthParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        DashboardTab.addTab("tab4", ParkingVIew);
+        ParkingView.add(fifthPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 158, 670));
 
-        MainPanel.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, -38, 910, 770));
+        thirdTable.setFont(new java.awt.Font("Poppins Medium", 1, 12)); // NOI18N
+        thirdTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Gate 3"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        thirdTable.setToolTipText("");
+        thirdTable.setFocusable(false);
+        thirdTable.setOpaque(false);
+        thirdTable.setRowHeight(21);
+        thirdTable.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        jScrollPane5.setViewportView(thirdTable);
+        if (thirdTable.getColumnModel().getColumnCount() > 0) {
+            thirdTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout thirdParkLayout = new javax.swing.GroupLayout(thirdPark);
+        thirdPark.setLayout(thirdParkLayout);
+        thirdParkLayout.setHorizontalGroup(
+            thirdParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        thirdParkLayout.setVerticalGroup(
+            thirdParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(thirdParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        ParkingView.add(thirdPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 158, 670));
+
+        forthTable.setFont(new java.awt.Font("Poppins Medium", 1, 12)); // NOI18N
+        forthTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Gate 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        forthTable.setToolTipText("");
+        forthTable.setFocusable(false);
+        forthTable.setOpaque(false);
+        forthTable.setRowHeight(21);
+        forthTable.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        jScrollPane6.setViewportView(forthTable);
+        if (forthTable.getColumnModel().getColumnCount() > 0) {
+            forthTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout forthParkLayout = new javax.swing.GroupLayout(forthPark);
+        forthPark.setLayout(forthParkLayout);
+        forthParkLayout.setHorizontalGroup(
+            forthParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(forthParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        forthParkLayout.setVerticalGroup(
+            forthParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(forthParkLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        ParkingView.add(forthPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 158, 670));
+
+        firstPark.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstTable.setFont(new java.awt.Font("Poppins Medium", 1, 12)); // NOI18N
+        firstTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Gate 1"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        firstTable.setToolTipText("");
+        firstTable.setFocusable(false);
+        firstTable.setOpaque(false);
+        firstTable.setRowHeight(21);
+        firstTable.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        jScrollPane3.setViewportView(firstTable);
+        if (firstTable.getColumnModel().getColumnCount() > 0) {
+            firstTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        firstPark.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 670));
+
+        ParkingView.add(firstPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 158, 670));
+
+        secondTable.setFont(new java.awt.Font("Poppins Medium", 1, 12)); // NOI18N
+        secondTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Gate 2"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        secondTable.setToolTipText("");
+        secondTable.setFocusable(false);
+        secondTable.setOpaque(false);
+        secondTable.setRowHeight(21);
+        secondTable.setSelectionBackground(new java.awt.Color(232, 207, 250));
+        jScrollPane4.setViewportView(secondTable);
+        if (secondTable.getColumnModel().getColumnCount() > 0) {
+            secondTable.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout secondParkLayout = new javax.swing.GroupLayout(secondPark);
+        secondPark.setLayout(secondParkLayout);
+        secondParkLayout.setHorizontalGroup(
+            secondParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondParkLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        secondParkLayout.setVerticalGroup(
+            secondParkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondParkLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        ParkingView.add(secondPark, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 50, 158, 670));
+
+        DashboardTab.addTab("tab4", ParkingView);
+
+        MainPanel.add(DashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, -38, 920, 770));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 733));
 
@@ -1110,6 +1545,19 @@ public class dashboard extends javax.swing.JFrame {
                 Pwd_Sen, 
                 hPwd_Sen, 
                 date);
+        if(Pwd_Sen == true || hPwd_Sen == true){
+            addFirstTable(platenum);    
+        }else{
+            if(secondTable.getRowCount() <= 29){
+                addSecondTable(platenum);
+            }else if(secondTable.getRowCount() == 30){
+                addThirdTable(platenum);
+            }else if(thirdTable.getRowCount() == 30){
+                addForthTable(platenum);
+            }else if(forthTable.getRowCount() == 30){
+                addFifthTable(platenum);
+            }
+        }
         clear();
         }
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
@@ -1316,6 +1764,12 @@ public class dashboard extends javax.swing.JFrame {
     private void BtnAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvailableActionPerformed
         DashboardTab.setSelectedIndex(1);
     }//GEN-LAST:event_BtnAvailableActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        String search = searchField.getText();
+        implement.readData();
+        
+    }//GEN-LAST:event_searchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1344,7 +1798,7 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel Dashboardpanel;
     private javax.swing.JButton ExitButton;
     private javax.swing.JPanel MainPanel;
-    private javax.swing.JPanel ParkingVIew;
+    private javax.swing.JPanel ParkingView;
     private javax.swing.JLabel Remain;
     private javax.swing.JButton SubmitAddCusBtn;
     private javax.swing.JPanel TotalRec;
@@ -1355,7 +1809,13 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnMin1;
     private javax.swing.JLabel cusLogo;
     private static javax.swing.JTable dashTabled;
+    private javax.swing.JPanel fifthPark;
+    private javax.swing.JTable fifthTable;
+    private javax.swing.JPanel firstPark;
+    private javax.swing.JTable firstTable;
     private static javax.swing.JTextField fname;
+    private javax.swing.JPanel forthPark;
+    private javax.swing.JTable forthTable;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -1365,6 +1825,11 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
@@ -1389,11 +1854,17 @@ public class dashboard extends javax.swing.JFrame {
     private static javax.swing.JRadioButton r2;
     private javax.swing.ButtonGroup rb_one;
     private javax.swing.ButtonGroup rb_two;
+    private javax.swing.JButton searchBtn;
+    private static javax.swing.JTextField searchField;
+    private javax.swing.JPanel secondPark;
+    private javax.swing.JTable secondTable;
     private javax.swing.JButton sortFnameBtn;
     private javax.swing.JButton sortLnameBtn1;
     private javax.swing.JButton sortPnumberBtn1;
     private javax.swing.JButton sortVtypeBtn;
     private javax.swing.JButton sortVtypeBtn1;
+    private javax.swing.JPanel thirdPark;
+    private javax.swing.JTable thirdTable;
     private javax.swing.JPanel titleBar;
     private javax.swing.JPanel titleBar1;
     private javax.swing.JLabel vehicleLabel;
