@@ -237,7 +237,7 @@ public class LoadingScreen extends javax.swing.JFrame {
 
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 
                 ls.LoadPercent.setText(i + "%");
 
