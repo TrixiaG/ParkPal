@@ -4,6 +4,8 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -1766,9 +1768,18 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAvailableActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        String search = searchField.getText();
-        implement.readData();
-        
+
+         searchBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              System.out.println("CLICKED");
+                String query = searchField.getText().trim();
+                      System.out.println("QUERY: " + query);
+
+                implement.setQuery(query);
+              implement.search();
+            }
+        });
     }//GEN-LAST:event_searchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1776,7 +1787,6 @@ public class dashboard extends javax.swing.JFrame {
                 new dashboard().setVisible(true);
             }
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

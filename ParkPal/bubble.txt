@@ -1,1 +1,2 @@
+Trixia, Gregorio, 09669401282, AAA323, Motorcycle, true, false, 2023-05-10
 Reign, Gallego, 09202687607, YVN696, 4 Wheeler Car, false, false, 2023-05-10
