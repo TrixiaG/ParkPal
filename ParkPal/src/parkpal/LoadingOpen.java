@@ -13,11 +13,12 @@ import javax.swing.SwingUtilities;
  *
  * @author Drian
  */
-public class LoadingScreen extends javax.swing.JFrame {
+public class LoadingOpen extends javax.swing.JFrame {
+    static Implementation implement = new Implementation();
     int xMouse;
     int yMouse;
     private static final int CORNER_RADIUS = 30;
-    public LoadingScreen() {
+    public LoadingOpen() {
         initComponents();
         setLocationRelativeTo(null);
         setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), CORNER_RADIUS, CORNER_RADIUS));
@@ -232,29 +233,34 @@ public class LoadingScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_snakeGame2KeyPressed
 
     public static void main(String args[]) {
-        LoadingScreen ls = new LoadingScreen();
+        LoadingOpen ls = new LoadingOpen();
         ls.setVisible(true);
+        implement.addStack();
 
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(1);
+                Thread.sleep(100);
                 
                 ls.LoadPercent.setText(i + "%");
-
                 if(i==10){
-                    ls.Loading.setText("Turning On Modules...");
+                    implement.StackingOpen();
+                    ls.Loading.setText(implement.getLoadingStatus());
                 }
                 if(i==20){
-                    ls.Loading.setText("Loading Modules...");
+                    implement.StackingOpen();
+                    ls.Loading.setText(implement.getLoadingStatus());
                 }
                 if(i==50){
-                    ls.Loading.setText("Connecting to Database...");
+                    implement.StackingOpen();
+                    ls.Loading.setText(implement.getLoadingStatus());
                 }
                 if(i==70){
-                    ls.Loading.setText("Connection Successful...");
+                    implement.StackingOpen();
+                    ls.Loading.setText(implement.getLoadingStatus());
                 }
                 if(i==80){
-                    ls.Loading.setText("Finishing Up...");
+                    implement.StackingOpen();
+                    ls.Loading.setText(implement.getLoadingStatus());
                 }
                 ls.LoadingProgress.setValue(i);
                 System.out.println(i);

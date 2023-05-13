@@ -48,7 +48,6 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
         
         Font customFont = new Font("Poppins Light", Font.BOLD, 12);
         setFont(customFont);
-
         
         addKeyListener(this);
         startGame();

@@ -10,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -115,7 +113,6 @@ public class dashboard extends javax.swing.JFrame {
         });
     }
     public void countingCus(){
-
         implement.readData();
         implement.getCustomers(implement.getData());
         int cus = implement.getNoCus();
@@ -159,6 +156,36 @@ public class dashboard extends javax.swing.JFrame {
                 date
             });
     }
+    public void addFirstTable(String platenum){
+        DefaultTableModel t;
+        
+        t = (DefaultTableModel) firstTable.getModel();
+            t.addRow(new Object[]{platenum});   
+    }
+    public void addSecondTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) secondTable.getModel();
+            t.addRow(new Object[]{platenum});   
+    }
+    public void addThirdTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) thirdTable.getModel();
+            t.addRow(new Object[]{platenum});   
+    }
+    public void addForthTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) forthTable.getModel();
+            t.addRow(new Object[]{platenum});   
+    }
+    public void addFifthTable(String platenum){
+        DefaultTableModel t;
+        int row = 0;
+        t = (DefaultTableModel) fifthTable.getModel();
+            t.addRow(new Object[]{platenum});   
+    }
     public void firstFile(){
         File file = new File("gate1.txt");
         try {
@@ -175,6 +202,7 @@ public class dashboard extends javax.swing.JFrame {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public void secondFile(){
         File file = new File("gate2.txt");
         try {
@@ -237,86 +265,6 @@ public class dashboard extends javax.swing.JFrame {
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public void addFirstTable(String platenum){
-        DefaultTableModel t;
-        
-        t = (DefaultTableModel) firstTable.getModel();
-            t.addRow(new Object[]{platenum});   
-            
-        try {
-            FileWriter fw = new FileWriter("gate1.txt", true);
-            int rows = t.getRowCount();
-            Object value = t.getValueAt(rows - 1, 0); // get the last added value
-            fw.write(value.toString() + "\n"); // write the last added value
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void addSecondTable(String platenum){
-        DefaultTableModel t;
-        int row = 0;
-        t = (DefaultTableModel) secondTable.getModel();
-            t.addRow(new Object[]{platenum});   
-            
-        try {
-            FileWriter fw = new FileWriter("gate2.txt", true);
-            int rows = t.getRowCount();
-            Object value = t.getValueAt(rows - 1, 0); // get the last added value
-            fw.write(value.toString() + "\n"); // write the last added value
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void addThirdTable(String platenum){
-        DefaultTableModel t;
-        int row = 0;
-        t = (DefaultTableModel) thirdTable.getModel();
-            t.addRow(new Object[]{platenum});   
-            
-        try {
-            FileWriter fw = new FileWriter("gate3.txt", true);
-            int rows = t.getRowCount();
-            Object value = t.getValueAt(rows - 1, 0); // get the last added value
-            fw.write(value.toString() + "\n"); // write the last added value
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void addForthTable(String platenum){
-        DefaultTableModel t;
-        int row = 0;
-        t = (DefaultTableModel) forthTable.getModel();
-            t.addRow(new Object[]{platenum});   
-            
-        try {
-            FileWriter fw = new FileWriter("gate4.txt", true);
-            int rows = t.getRowCount();
-            Object value = t.getValueAt(rows - 1, 0); // get the last added value
-            fw.write(value.toString() + "\n"); // write the last added value
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public void addFifthTable(String platenum){
-        DefaultTableModel t;
-        int row = 0;
-        t = (DefaultTableModel) fifthTable.getModel();
-            t.addRow(new Object[]{platenum});   
-            
-        try {
-            FileWriter fw = new FileWriter("gate5.txt", true);
-            int rows = t.getRowCount();
-            Object value = t.getValueAt(rows - 1, 0); // get the last added value
-            fw.write(value.toString() + "\n"); // write the last added value
-            fw.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
         }
     }
     private void clear(){
@@ -1561,6 +1509,8 @@ public class dashboard extends javax.swing.JFrame {
             }
         }
         clear();
+        
+        implement.Queuing();
         }
     }//GEN-LAST:event_SubmitAddCusBtnActionPerformed
 
@@ -1593,6 +1543,8 @@ public class dashboard extends javax.swing.JFrame {
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnExit);
+        implement.StackingClose();
+        System.exit(0);
         frame.dispose();    }//GEN-LAST:event_btnExitMouseClicked
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
@@ -1777,9 +1729,11 @@ public class dashboard extends javax.swing.JFrame {
                       System.out.println("QUERY: " + query);
 
                 implement.setQuery(query);
-              implement.search();
+              //implement.search();
             }
         });
+        implement.readData();
+        implement.Queuing();
     }//GEN-LAST:event_searchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

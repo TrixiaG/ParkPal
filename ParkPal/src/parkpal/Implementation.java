@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parkpal;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,12 +10,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
-import org.w3c.dom.Node; 
 
 
 /**
@@ -33,42 +32,30 @@ public class Implementation{
     static String vtype = null;
     static boolean isPwd_Sen = false;
     static boolean havePwd_Sen = false;
+    static String loadingStatus = null;
     static ArrayList<String> data = new ArrayList<>();
-    private LinkedList<String> queue = new LinkedList<>();
+    static Queue<String> queue1 = new LinkedList<>();
+    static Queue<String> queue2 = new LinkedList<>();
+    static Stack<String> stackLoading = new Stack<>();
     static String date = null;
     static int noCus = 0;
     static int noPwd = 0;
     static int noAvail = 150;
-    private BinarySearchTree bst = new BinarySearchTree();
+    //private BinarySearchTree bst = new BinarySearchTree();
     private String query = "";
+
+    public static String getLoadingStatus() {
+        return loadingStatus;
+    }
+
+    public static void setLoadingStatus(String loadingStatus) {
+        Implementation.loadingStatus = loadingStatus;
+    }
+    
     private static DefaultTableModel t;
     
     private JTable table = new JTable();
     
-    public static int getNoAvail() {
-        return noAvail;
-    }
-
-    public static void setNoAvail(int noAvail) {
-        Implementation.noAvail = noAvail;
-    }
-
-    public static int getNoCus() {
-        return noCus;
-    }
-
-    public static void setNoCus(int noCus) {
-        Implementation.noCus = noCus;
-    }
-
-    public static int getNoPwd() {
-        return noPwd;
-    }
-
-    public static void setNoPwd(int noPwd) {
-        Implementation.noPwd = noPwd;
-    }
-
     public static ArrayList<String> getData() {
         return data;
     }
@@ -79,22 +66,6 @@ public class Implementation{
 
     public static String getDate() {
         return date;
-    }
-
-    public static DefaultTableModel gett() {
-        return t;
-    }
-    
-    public static void sett(DefaultTableModel model) {
-        t = model;
-    }
-
-    public String getQuery() {
-        return query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
     }
 
     public static void setDate(String date) {
@@ -155,6 +126,62 @@ public class Implementation{
 
     public static void setHavePwd_Sen(boolean havePwd_Sen) {
         Implementation.havePwd_Sen = havePwd_Sen;
+    }
+    
+    public static Queue<String> getQueue1() {
+        return queue1;
+    }
+
+    public static void setQueue1(Queue<String> queue1) {
+        Implementation.queue1 = queue1;
+    }
+
+    public static Queue<String> getQueue2() {
+        return queue2;
+    }
+
+    public static void setQueue2(Queue<String> queue2) {
+        Implementation.queue2 = queue2;
+    }
+    
+    public static int getNoAvail() {
+        return noAvail;
+    }
+
+    public static void setNoAvail(int noAvail) {
+        Implementation.noAvail = noAvail;
+    }
+
+    public static int getNoCus() {
+        return noCus;
+    }
+
+    public static void setNoCus(int noCus) {
+        Implementation.noCus = noCus;
+    }
+
+    public static int getNoPwd() {
+        return noPwd;
+    }
+
+    public static void setNoPwd(int noPwd) {
+        Implementation.noPwd = noPwd;
+    }
+    
+    public static DefaultTableModel gett() {
+        return t;
+    }
+    
+    public static void sett(DefaultTableModel model) {
+        t = model;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 
     public void saveData(){
@@ -472,171 +499,262 @@ public class Implementation{
         int day2 = Integer.parseInt(date2[2]);
         return day1 - day2;
     }      
-
-   public void setSearchTable(JTable searchTable) {
-        table = searchTable;
-        t = (DefaultTableModel) table.getModel();
-                  System.out.println("Table model: " + t);
-    }
-
-    public static void populateTable(List<String> data) {
-        clearTable();
-        for (String line : data) {
-            String[] fields = line.split(", ");
-            t.addRow(fields);
-        }
-    }
-
-    private static void clearTable() {
-        if (t != null) {
-            int rowCount = t.getRowCount();
-            for (int i = rowCount - 1; i >= 0; i--) {
-                t.removeRow(i);
+    
+    public void Queuing(){
+        if (isPwd_Sen == true || havePwd_Sen == true) {
+            queue1.add(pnum);
+            try {
+                FileWriter fw = new FileWriter("gate1.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                String joinedString = String.join("\n", pnum);
+                bw.write(joinedString);
+                bw.newLine();
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        } else{
+            queue2.add(pnum);
+            if(queue2.size() <= 29){
+                try {
+                    FileWriter fw = new FileWriter("gate2.txt",true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    String joinedString = String.join("\n", pnum);
+                    bw.write(joinedString);
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else if(queue2.size() == 30){
+                try {
+                    FileWriter fw = new FileWriter("gate3.txt",true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    String joinedString = String.join("\n", pnum);
+                    bw.write(joinedString);
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else if(queue2.size() == 60){
+                try {
+                    FileWriter fw = new FileWriter("gate4.txt",true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    String joinedString = String.join("\n", pnum);
+                    bw.write(joinedString);
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else if(queue2.size() == 90){
+                try {
+                    FileWriter fw = new FileWriter("gate5.txt",true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    String joinedString = String.join("\n", pnum);
+                    bw.write(joinedString);
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } 
         }
+        System.out.println(queue1);
+        System.out.println(queue2);
+        queue1.clear();
+        queue2.clear();
     }
-
-    public void search() {
-        BinarySearchTree bst = new BinarySearchTree();
-        ArrayList<String> data = readData2();
-        for (String line : data) {
-            bst.insert(line);
+    public void StackingClose(){
+        if(stackLoading.isEmpty()){
+            stackLoading.push("Finishing Up...");
+            stackLoading.push("Connection Successful...");
+            stackLoading.push("Connecting to Database...");
+            stackLoading.push("Loading Modules...");
+            stackLoading.push("Turning On Modules...");
         }
-
-        List<String> results = bst.search(query);
-                  System.out.println("Results: " + results);
-        updateTable(results);
+        System.out.println(stackLoading);
     }
-    private void updateTable(List<String> results) {
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[] { "First Name", "Last Name", "Mobile Number", "Phone Number", "Vehicle Type", "Is Password Set", "Have Password Set", "Date" });
-
-        for (String result : results) {
-            String[] fields = result.split(", ");
-            if (matchesQuery(fields)) {
-                model.addRow(fields);
-            }
+    public static void addStack(){
+        String[] text = {"Finishing Up...", "Connection Successful...", "Connecting to Database...", "Loading Modules...", "Turning On Modules..."};
+        for(int i = 0; i < 5; i++){
+            stackLoading.add(text[i]);
         }
-
-        table.setModel(model);
+        System.out.println(stackLoading);
     }
-
-    private boolean matchesQuery(String[] fields) {
-        //DELETE
-        System.out.println("Query: " + query);
-        System.out.println("Fields[0]: " + fields[0]);
-        
-        // Assuming the query is based on the first column (fname)
-        if (fields.length > 0 && fields[0].equalsIgnoreCase(query)) {
-            return true;
-        }
-        return false;
+    public static void StackingOpen(){
+        System.out.println(stackLoading);
+        if(!stackLoading.isEmpty()){
+            loadingStatus = stackLoading.pop();
+        }  
     }
-
-    public static ArrayList<String> readData2() {
-        ArrayList<String> data = new ArrayList<>();
-
-        try {
-            Scanner scanner = new Scanner(new File(FILENAME));
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] fields = line.split(", ");
-                String fname = fields[0];
-                String lname = fields[1];
-                String mnum = fields[2];
-                String pnum = fields[3];
-                String vtype = fields[4];
-                boolean isPwd_Sen = Boolean.valueOf(fields[5]);
-                boolean havePwd_Sen = Boolean.valueOf(fields[6]);
-                String date = fields[7];
-                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
-                data.add(dataLine);
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-          System.out.println("Data: " + data);
-        return data;
-        
-    }
-
-public class BinarySearchTree {
-    private Node root;
-
-    public BinarySearchTree() {
-        root = null;
-    }
-
-    public void insert(String data) {
-        root = insertRecursive(root, data);
-    }
-
-    private Node insertRecursive(Node root, String data) {
-        if (root == null) {
-            return new Node(data);
-        }
-
-        int compareResult = data.compareTo(root.data);
-        if (compareResult < 0) {
-            root.left = insertRecursive(root.left, data);
-        } else if (compareResult > 0) {
-            root.right = insertRecursive(root.right, data);
-        }
-
-        return root;
-    }
-
-    public List<String> search(String query) {
-        List<String> results = new ArrayList<>();
-        searchRecursive(root, query, results);
-        return results;
-    }
-
-    private void searchRecursive(Node root, String query, List<String> results) {
-        if (root == null) {
-            return;
-        }
-
-        String[] fields = root.data.split(", ");
-        String fname = fields[0];
-
-        int compareResult = query.compareTo(fname);
-
-        if (compareResult == 0) {
-            results.add(root.data);
-        } else if (compareResult < 0) {
-            searchRecursive(root.left, query, results);
-        } else {
-            searchRecursive(root.right, query, results);
-        }
-    }
-
-    public void postOrderTraversal() {
-        postOrderTraversal(root);
-    }
-
-    private void postOrderTraversal(Node root) {
-        if (root == null) {
-            return;
-        }
-
-        postOrderTraversal(root.left);
-        postOrderTraversal(root.right);
-        System.out.println(root.data);
-    }
-
-    private class Node {
-        private String data;
-        private Node left;
-        private Node right;
-
-        public Node(String data) {
-            this.data = data;
-            left = null;
-            right = null;
-        }
-    }
-}
+    
+    //=====================================================
+//    public void setSearchTable(JTable searchTable) {
+//        table = searchTable;
+//        t = (DefaultTableModel) table.getModel();
+//                  System.out.println("Table model: " + t);
+//    }
+//
+//    public static void populateTable(List<String> data) {
+//        clearTable();
+//        for (String line : data) {
+//            String[] fields = line.split(", ");
+//            t.addRow(fields);
+//        }
+//    }
+//
+//    private static void clearTable() {
+//        if (t != null) {
+//            int rowCount = t.getRowCount();
+//            for (int i = rowCount - 1; i >= 0; i--) {
+//                t.removeRow(i);
+//            }
+//        }
+//    }
+//
+//    public void search() {
+//        BinarySearchTree bst = new BinarySearchTree();
+//        ArrayList<String> data = readData2();
+//        for (String line : data) {
+//            bst.insert(line);
+//        }
+//
+//        List<String> results = bst.search(query);
+//                  System.out.println("Results: " + results);
+//        updateTable(results);
+//    }
+//    private void updateTable(List<String> results) {
+//        DefaultTableModel model = new DefaultTableModel();
+//        model.setColumnIdentifiers(new String[] { "First Name", "Last Name", "Mobile Number", "Phone Number", "Vehicle Type", "Is Password Set", "Have Password Set", "Date" });
+//
+//        for (String result : results) {
+//            String[] fields = result.split(", ");
+//            if (matchesQuery(fields)) {
+//                model.addRow(fields);
+//            }
+//        }
+//
+//        table.setModel(model);
+//    }
+//
+//    private boolean matchesQuery(String[] fields) {
+//        //DELETE
+//        System.out.println("Query: " + query);
+//        System.out.println("Fields[0]: " + fields[0]);
+//        
+//        // Assuming the query is based on the first column (fname)
+//        if (fields.length > 0 && fields[0].equalsIgnoreCase(query)) {
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public static ArrayList<String> readData2() {
+//        ArrayList<String> data = new ArrayList<>();
+//
+//        try {
+//            Scanner scanner = new Scanner(new File(FILENAME));
+//            while (scanner.hasNextLine()) {
+//                String line = scanner.nextLine();
+//                String[] fields = line.split(", ");
+//                String fname = fields[0];
+//                String lname = fields[1];
+//                String mnum = fields[2];
+//                String pnum = fields[3];
+//                String vtype = fields[4];
+//                boolean isPwd_Sen = Boolean.valueOf(fields[5]);
+//                boolean havePwd_Sen = Boolean.valueOf(fields[6]);
+//                String date = fields[7];
+//                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+//                data.add(dataLine);
+//            }
+//            scanner.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//          System.out.println("Data: " + data);
+//        return data;
+//        
+//    }
+//    //===================================================
+//    public class BinarySearchTree {
+//       private Node root;
+//
+//       public BinarySearchTree() {
+//           root = null;
+//       }
+//
+//       public void insert(String data) {
+//           root = insertRecursive(root, data);
+//       }
+//
+//       private Node insertRecursive(Node root, String data) {
+//           if (root == null) {
+//               return new Node(data);
+//           }
+//
+//           int compareResult = data.compareTo(root.data);
+//           if (compareResult < 0) {
+//               root.left = insertRecursive(root.left, data);
+//           } else if (compareResult > 0) {
+//               root.right = insertRecursive(root.right, data);
+//           }
+//
+//           return root;
+//       }
+//
+//       public List<String> search(String query) {
+//           List<String> results = new ArrayList<>();
+//           searchRecursive(root, query, results);
+//           return results;
+//       }
+//
+//       private void searchRecursive(Node root, String query, List<String> results) {
+//           if (root == null) {
+//               return;
+//           }
+//
+//           String[] fields = root.data.split(", ");
+//           String fname = fields[0];
+//
+//           int compareResult = query.compareTo(fname);
+//
+//           if (compareResult == 0) {
+//               results.add(root.data);
+//           } else if (compareResult < 0) {
+//               searchRecursive(root.left, query, results);
+//           } else {
+//               searchRecursive(root.right, query, results);
+//           }
+//       }
+//
+//       public void postOrderTraversal() {
+//           postOrderTraversal(root);
+//       }
+//
+//       private void postOrderTraversal(Node root) {
+//           if (root == null) {
+//               return;
+//           }
+//
+//           postOrderTraversal(root.left);
+//           postOrderTraversal(root.right);
+//           System.out.println(root.data);
+//       }
+//
+//       private class Node {
+//           private String data;
+//           private Node left;
+//           private Node right;
+//
+//           public Node(String data) {
+//               this.data = data;
+//               left = null;
+//               right = null;
+//           }
+//       }
+//   }
 }
 

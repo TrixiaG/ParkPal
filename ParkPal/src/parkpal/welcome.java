@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
  * @author PC
  */
 public class welcome extends javax.swing.JFrame {
+    static Implementation implement = new Implementation();
     private static final int CORNER_RADIUS = 30;
     int xMouse;
     int yMouse;
@@ -310,6 +311,8 @@ public class welcome extends javax.swing.JFrame {
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnExit);
+        implement.StackingClose();
+        System.exit(0);
         frame.dispose();
     }//GEN-LAST:event_btnExitMouseClicked
 
