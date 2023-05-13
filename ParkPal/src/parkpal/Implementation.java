@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parkpal;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,8 +16,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -42,7 +42,6 @@ public class Implementation{
     static int noCus = 0;
     static int noPwd = 0;
     static int noAvail = 150;
-    private BinarySearchTree bst = new BinarySearchTree();
     private String[] results;
 
     private String query = "";
@@ -602,30 +601,8 @@ public class Implementation{
     }
     
     //=====================================================
-    public void setSearchTable(JTable searchTable) {
-        table = searchTable;
-        t = (DefaultTableModel) table.getModel();
-                  System.out.println("Table model: " + t);
-    }
 
-    public static void populateTable(List<String> data) {
-        clearTable();
-        for (String line : data) {
-            String[] fields = line.split(", ");
-            t.addRow(fields);
-        }
-    }
-
-    private static void clearTable() {
-        if (t != null) {
-            int rowCount = t.getRowCount();
-            for (int i = rowCount - 1; i >= 0; i--) {
-                t.removeRow(i);
-            }
-        }
-    }
-
-    public void search() {
+    public List search() {
         BinarySearchTree bst = new BinarySearchTree();
         ArrayList<String> data = readData2();
         for (String line : data) {
@@ -633,23 +610,9 @@ public class Implementation{
         }
 
         List<String> results = bst.search(query);
-                  System.out.println("Results: " + results);
-        updateTable(results);
-        
+        System.out.println("Results: " + results);
+        return results;
     }
-    private void updateTable(List<String> results) {
-        DefaultTableModel model = new DefaultTableModel();
-        model.setRowCount(0);
-        for (String result : results) {
-            String[] fields = result.split(", ");
-            if (matchesQuery(fields)) {
-                model.addRow(fields);
-            }
-        }
-
-        table.setModel(model);
-    }
-
     private boolean matchesQuery(String[] fields) {
         //DELETE
         System.out.println("Query: " + query);

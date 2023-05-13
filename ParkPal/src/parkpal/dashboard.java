@@ -4,19 +4,17 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -278,11 +276,16 @@ public class dashboard extends javax.swing.JFrame {
         rb_two.clearSelection();
     }
     public static void load(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         File file = new File("data.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             DefaultTableModel model = (DefaultTableModel) dashTabled.getModel();
-            
+            model.setRowCount(0);
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length ; i++){
@@ -1723,10 +1726,28 @@ public class dashboard extends javax.swing.JFrame {
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         System.out.println("CLICKED");
         String query = searchField.getText().trim();
-              System.out.println("QUERY: " + query);
-
+        System.out.println("QUERY: " + query);
+        
         implement.setQuery(query);
-        implement.search();
+        List<String> res = implement.search();
+        String array = res.get(0);
+        
+        String[] info = array.split(", ");
+        
+        DefaultTableModel t;
+        
+        t = (DefaultTableModel) dashTabled.getModel();
+        t.setRowCount(0);
+            t.addRow(new Object[]{
+                info[0], 
+                info[1], 
+                info[2], 
+                info[3], 
+                info[4], 
+                info[5], 
+                info[6], 
+                info[7]
+            });
     }//GEN-LAST:event_searchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
