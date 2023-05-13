@@ -591,6 +591,11 @@ public class dashboard extends javax.swing.JFrame {
 
         DashboardLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ParkPalLogo/ParkPal-Logo9.png"))); // NOI18N
         DashboardLogo.setToolTipText("");
+        DashboardLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashboardLogoMouseClicked(evt);
+            }
+        });
         kGradientPanel1.add(DashboardLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 29, -1, -1));
 
         BtnDashboard.setBackground(new java.awt.Color(98, 103, 235));
@@ -1749,6 +1754,10 @@ public class dashboard extends javax.swing.JFrame {
                 info[7]
             });
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void DashboardLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashboardLogoMouseClicked
+        load();
+    }//GEN-LAST:event_DashboardLogoMouseClicked
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

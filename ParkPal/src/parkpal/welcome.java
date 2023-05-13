@@ -235,7 +235,7 @@ public class welcome extends javax.swing.JFrame {
         });
         kGradientPanel1.add(LogInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 515, 335, 49));
 
-        HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/6.jpg"))); // NOI18N
+        HomePageImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HomePageImagePack/LoginPhoto.jpg"))); // NOI18N
         HomePageImage.setOpaque(true);
         kGradientPanel1.add(HomePageImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 0, 651, -1));
 

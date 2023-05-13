@@ -85,7 +85,7 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
             g.fillOval(food.x, food.y, UNIT_SIZE, UNIT_SIZE);
             for (Point p : snake) {
                 g.setColor(new Color(30, 73, 77));
-                g.fillRoundRect(p.x, p.y, UNIT_SIZE, UNIT_SIZE, UNIT_SIZE, UNIT_SIZE);
+                g.fillRoundRect(p.x, p.y, UNIT_SIZE, UNIT_SIZE, UNIT_SIZE-10, UNIT_SIZE-10);
             }
         } else {
             gameOver(g);
