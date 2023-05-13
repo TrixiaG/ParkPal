@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -1720,20 +1721,12 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAvailableActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        System.out.println("CLICKED");
+        String query = searchField.getText().trim();
+              System.out.println("QUERY: " + query);
 
-         searchBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-              System.out.println("CLICKED");
-                String query = searchField.getText().trim();
-                      System.out.println("QUERY: " + query);
-
-                implement.setQuery(query);
-              //implement.search();
-            }
-        });
-        implement.readData();
-        implement.Queuing();
+        implement.setQuery(query);
+        implement.search();
     }//GEN-LAST:event_searchBtnActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1834,4 +1827,5 @@ public class dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel vehicleLabel;
     private static javax.swing.JComboBox<String> vtype;
     // End of variables declaration//GEN-END:variables
+
 }

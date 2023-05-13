@@ -8,6 +8,7 @@ Mark, Garcia, 09123456789, GHI012, Motorcycle, true, true, 2023-05-10
 Samantha, Lee, 09187654321, QWE123, 4 Wheeler Car, true, false, 2023-05-10
 Carl Lawrence, Lontac, 09285430647, PAP109, Motorcycle, true, false, 2023-05-10
 Jan Michael, Miravalles, 09195893518, LTO613, Motorcycle, false, false, 2023-05-10
+Trisha, Pangan, 09123456788, RAF180, Motorcycle, false, false, 2023-05-13
 Rafael, Ronquillo, 09347268121, RRF317, 4 Wheeler Car, false, false, 2023-05-10
 John, Smith, 09123456789, ABC456, Motorcycle, true, false, 2023-05-10
 Jake, Sully, 09085434698, RMG918, 4 Wheeler Car, false, true, 2023-05-10

@@ -12,4 +12,5 @@ Rian, Gallego, 09280555392, RMT568, 4 Wheeler Car, true, true, 2023-05-10
 Ronaldo,  De Lima, 09123456789, MNB987, Motorcycle, false, true, 2023-05-10
 Samantha, Lee, 09187654321, QWE123, 4 Wheeler Car, true, false, 2023-05-10
 Taylor , Swift, 09123456788, JOE143, Motorcycle, true, false, 2023-05-10
+Trisha, Pangan, 09123456788, RAF180, Motorcycle, false, false, 2023-05-13
 Victoria, Cabalo, 09231534234, PAZ101, Motorcycle, false, false, 2023-05-10

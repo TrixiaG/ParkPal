@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
@@ -41,7 +42,9 @@ public class Implementation{
     static int noCus = 0;
     static int noPwd = 0;
     static int noAvail = 150;
-    //private BinarySearchTree bst = new BinarySearchTree();
+    private BinarySearchTree bst = new BinarySearchTree();
+    private String[] results;
+
     private String query = "";
 
     public static String getLoadingStatus() {
@@ -182,6 +185,14 @@ public class Implementation{
 
     public void setQuery(String query) {
         this.query = query;
+    }
+    
+    public String[] getResults() {
+        return results;
+    }
+
+    public void setResults(String[] results) {
+        this.results = results;
     }
 
     public void saveData(){
@@ -591,170 +602,170 @@ public class Implementation{
     }
     
     //=====================================================
-//    public void setSearchTable(JTable searchTable) {
-//        table = searchTable;
-//        t = (DefaultTableModel) table.getModel();
-//                  System.out.println("Table model: " + t);
-//    }
-//
-//    public static void populateTable(List<String> data) {
-//        clearTable();
-//        for (String line : data) {
-//            String[] fields = line.split(", ");
-//            t.addRow(fields);
-//        }
-//    }
-//
-//    private static void clearTable() {
-//        if (t != null) {
-//            int rowCount = t.getRowCount();
-//            for (int i = rowCount - 1; i >= 0; i--) {
-//                t.removeRow(i);
-//            }
-//        }
-//    }
-//
-//    public void search() {
-//        BinarySearchTree bst = new BinarySearchTree();
-//        ArrayList<String> data = readData2();
-//        for (String line : data) {
-//            bst.insert(line);
-//        }
-//
-//        List<String> results = bst.search(query);
-//                  System.out.println("Results: " + results);
-//        updateTable(results);
-//    }
-//    private void updateTable(List<String> results) {
-//        DefaultTableModel model = new DefaultTableModel();
-//        model.setColumnIdentifiers(new String[] { "First Name", "Last Name", "Mobile Number", "Phone Number", "Vehicle Type", "Is Password Set", "Have Password Set", "Date" });
-//
-//        for (String result : results) {
-//            String[] fields = result.split(", ");
-//            if (matchesQuery(fields)) {
-//                model.addRow(fields);
-//            }
-//        }
-//
-//        table.setModel(model);
-//    }
-//
-//    private boolean matchesQuery(String[] fields) {
-//        //DELETE
-//        System.out.println("Query: " + query);
-//        System.out.println("Fields[0]: " + fields[0]);
-//        
-//        // Assuming the query is based on the first column (fname)
-//        if (fields.length > 0 && fields[0].equalsIgnoreCase(query)) {
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    public static ArrayList<String> readData2() {
-//        ArrayList<String> data = new ArrayList<>();
-//
-//        try {
-//            Scanner scanner = new Scanner(new File(FILENAME));
-//            while (scanner.hasNextLine()) {
-//                String line = scanner.nextLine();
-//                String[] fields = line.split(", ");
-//                String fname = fields[0];
-//                String lname = fields[1];
-//                String mnum = fields[2];
-//                String pnum = fields[3];
-//                String vtype = fields[4];
-//                boolean isPwd_Sen = Boolean.valueOf(fields[5]);
-//                boolean havePwd_Sen = Boolean.valueOf(fields[6]);
-//                String date = fields[7];
-//                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
-//                data.add(dataLine);
-//            }
-//            scanner.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//          System.out.println("Data: " + data);
-//        return data;
-//        
-//    }
-//    //===================================================
-//    public class BinarySearchTree {
-//       private Node root;
-//
-//       public BinarySearchTree() {
-//           root = null;
-//       }
-//
-//       public void insert(String data) {
-//           root = insertRecursive(root, data);
-//       }
-//
-//       private Node insertRecursive(Node root, String data) {
-//           if (root == null) {
-//               return new Node(data);
-//           }
-//
-//           int compareResult = data.compareTo(root.data);
-//           if (compareResult < 0) {
-//               root.left = insertRecursive(root.left, data);
-//           } else if (compareResult > 0) {
-//               root.right = insertRecursive(root.right, data);
-//           }
-//
-//           return root;
-//       }
-//
-//       public List<String> search(String query) {
-//           List<String> results = new ArrayList<>();
-//           searchRecursive(root, query, results);
-//           return results;
-//       }
-//
-//       private void searchRecursive(Node root, String query, List<String> results) {
-//           if (root == null) {
-//               return;
-//           }
-//
-//           String[] fields = root.data.split(", ");
-//           String fname = fields[0];
-//
-//           int compareResult = query.compareTo(fname);
-//
-//           if (compareResult == 0) {
-//               results.add(root.data);
-//           } else if (compareResult < 0) {
-//               searchRecursive(root.left, query, results);
-//           } else {
-//               searchRecursive(root.right, query, results);
-//           }
-//       }
-//
-//       public void postOrderTraversal() {
-//           postOrderTraversal(root);
-//       }
-//
-//       private void postOrderTraversal(Node root) {
-//           if (root == null) {
-//               return;
-//           }
-//
-//           postOrderTraversal(root.left);
-//           postOrderTraversal(root.right);
-//           System.out.println(root.data);
-//       }
-//
-//       private class Node {
-//           private String data;
-//           private Node left;
-//           private Node right;
-//
-//           public Node(String data) {
-//               this.data = data;
-//               left = null;
-//               right = null;
-//           }
-//       }
-//   }
+    public void setSearchTable(JTable searchTable) {
+        table = searchTable;
+        t = (DefaultTableModel) table.getModel();
+                  System.out.println("Table model: " + t);
+    }
+
+    public static void populateTable(List<String> data) {
+        clearTable();
+        for (String line : data) {
+            String[] fields = line.split(", ");
+            t.addRow(fields);
+        }
+    }
+
+    private static void clearTable() {
+        if (t != null) {
+            int rowCount = t.getRowCount();
+            for (int i = rowCount - 1; i >= 0; i--) {
+                t.removeRow(i);
+            }
+        }
+    }
+
+    public void search() {
+        BinarySearchTree bst = new BinarySearchTree();
+        ArrayList<String> data = readData2();
+        for (String line : data) {
+            bst.insert(line);
+        }
+
+        List<String> results = bst.search(query);
+                  System.out.println("Results: " + results);
+        updateTable(results);
+        
+    }
+    private void updateTable(List<String> results) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.setRowCount(0);
+        for (String result : results) {
+            String[] fields = result.split(", ");
+            if (matchesQuery(fields)) {
+                model.addRow(fields);
+            }
+        }
+
+        table.setModel(model);
+    }
+
+    private boolean matchesQuery(String[] fields) {
+        //DELETE
+        System.out.println("Query: " + query);
+        System.out.println("Fields[0]: " + fields[0]);
+        
+        // Assuming the query is based on the first column (fname)
+        if (fields.length > 0 && fields[0].equalsIgnoreCase(query)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static ArrayList<String> readData2() {
+        ArrayList<String> data = new ArrayList<>();
+
+        try {
+            Scanner scanner = new Scanner(new File(FILENAME));
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] fields = line.split(", ");
+                String fname = fields[0];
+                String lname = fields[1];
+                String mnum = fields[2];
+                String pnum = fields[3];
+                String vtype = fields[4];
+                boolean isPwd_Sen = Boolean.valueOf(fields[5]);
+                boolean havePwd_Sen = Boolean.valueOf(fields[6]);
+                String date = fields[7];
+                String dataLine = fname + ", " + lname + ", " + mnum + ", " + pnum + ", " + vtype + ", " + isPwd_Sen + ", " + havePwd_Sen + ", " + date;
+                data.add(dataLine);
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+          System.out.println("Data: " + data);
+        return data;
+        
+    }
+    //===================================================
+    public class BinarySearchTree {
+       private Node root;
+
+       public BinarySearchTree() {
+           root = null;
+       }
+
+       public void insert(String data) {
+           root = insertRecursive(root, data);
+       }
+
+       private Node insertRecursive(Node root, String data) {
+           if (root == null) {
+               return new Node(data);
+           }
+
+           int compareResult = data.compareTo(root.data);
+           if (compareResult < 0) {
+               root.left = insertRecursive(root.left, data);
+           } else if (compareResult > 0) {
+               root.right = insertRecursive(root.right, data);
+           }
+
+           return root;
+       }
+
+       public List<String> search(String query) {
+           List<String> results = new ArrayList<>();
+           searchRecursive(root, query, results);
+           return results;
+       }
+
+       private void searchRecursive(Node root, String query, List<String> results) {
+           if (root == null) {
+               return;
+           }
+
+           String[] fields = root.data.split(", ");
+           String fname = fields[0];
+
+           int compareResult = query.compareTo(fname);
+
+           if (compareResult == 0) {
+               results.add(root.data);
+           } else if (compareResult < 0) {
+               searchRecursive(root.left, query, results);
+           } else {
+               searchRecursive(root.right, query, results);
+           }
+       }
+
+       public void postOrderTraversal() {
+           postOrderTraversal(root);
+       }
+
+       private void postOrderTraversal(Node root) {
+           if (root == null) {
+               return;
+           }
+
+           postOrderTraversal(root.left);
+           postOrderTraversal(root.right);
+           System.out.println(root.data);
+       }
+
+       private class Node {
+           private String data;
+           private Node left;
+           private Node right;
+
+           public Node(String data) {
+               this.data = data;
+               left = null;
+               right = null;
+           }
+       }
+   }
 }
 

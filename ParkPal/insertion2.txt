@@ -13,3 +13,4 @@ Carl Lawrence, Lontac, 09285430647, PAP109, Motorcycle, true, false, 2023-05-10
 Ronaldo,  De Lima, 09123456789, MNB987, Motorcycle, false, true, 2023-05-10
 John, Smith, 09123456789, ABC456, Motorcycle, true, false, 2023-05-10
 Mark, Garcia, 09123456789, GHI012, Motorcycle, true, true, 2023-05-10
+Trisha, Pangan, 09123456788, RAF180, Motorcycle, false, false, 2023-05-13
