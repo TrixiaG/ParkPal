@@ -39,11 +39,12 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
     private boolean running = false;
     private Timer timer;
     private Random random;
-    private Clip clip;
+    private Clip EatMe;
+    private Clip GameOver;
 
     public SnakeGame() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        setBackground(new Color(118,187,57));
+        setBackground(new Color(0,0,0));
         setFocusable(true);
         
         Font customFont = new Font("Poppins Light", Font.BOLD, 12);
@@ -56,8 +57,8 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
         try {
             URL url = getClass().getResource("/Sound/eatSound.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
-            clip = AudioSystem.getClip();
-            clip.open(audioIn);
+            EatMe = AudioSystem.getClip();
+            EatMe.open(audioIn);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
@@ -120,8 +121,8 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
         if (newHead.equals(food)) {
             snake.addFirst(newHead);
             generateFood();
-            clip.setFramePosition(0);
-            clip.start();
+            EatMe.setFramePosition(0);
+            EatMe.start();
         } else {
             snake.removeLast();
             if (snake.contains(newHead) || x < 0 || x > WIDTH - UNIT_SIZE || y < 0 || y > HEIGHT - UNIT_SIZE) {
@@ -179,19 +180,6 @@ public class SnakeGame extends JPanel implements KeyListener, ActionListener{
             break;
         }
     }
-    private Clip loadSound(String fileName) {
-        Clip clip = null;
-        try {
-            URL soundURL = getClass().getResource(fileName);
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundURL);
-            clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        }
-        return clip;
-    }
-
 
     @Override
     public void keyTyped(KeyEvent e) {
