@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package parkpal;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -525,7 +523,6 @@ public class Implementation{
             }
         } else{
             queue2.add(pnum);
-            if(queue2.size() <= 29){
                 try {
                     FileWriter fw = new FileWriter("gate2.txt",true);
                     BufferedWriter bw = new BufferedWriter(fw);
@@ -535,41 +532,7 @@ public class Implementation{
                     bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-            }else if(queue2.size() == 30){
-                try {
-                    FileWriter fw = new FileWriter("gate3.txt",true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    String joinedString = String.join("\n", pnum);
-                    bw.write(joinedString);
-                    bw.newLine();
-                    bw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }else if(queue2.size() == 60){
-                try {
-                    FileWriter fw = new FileWriter("gate4.txt",true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    String joinedString = String.join("\n", pnum);
-                    bw.write(joinedString);
-                    bw.newLine();
-                    bw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }else if(queue2.size() == 90){
-                try {
-                    FileWriter fw = new FileWriter("gate5.txt",true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    String joinedString = String.join("\n", pnum);
-                    bw.write(joinedString);
-                    bw.newLine();
-                    bw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } 
+                } 
         }
         System.out.println(queue1);
         System.out.println(queue2);
@@ -682,6 +645,8 @@ public class Implementation{
        public List<String> search(String query) {
            List<String> results = new ArrayList<>();
            searchRecursive(root, query, results);
+           System.out.println(query);
+           System.out.println(results);
            return results;
        }
 

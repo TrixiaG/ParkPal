@@ -4,6 +4,8 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
@@ -193,7 +196,7 @@ public class dashboard extends javax.swing.JFrame {
             
             Object[] lines = br.lines().toArray();
             
-            for(int i = 0; i < lines.length ; i++){
+            for(int i = 0; i < lines.length; i++){
                 String[] line = lines[i].toString().trim().split("\n");
                 model.addRow(line);
             }
@@ -209,58 +212,80 @@ public class dashboard extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) secondTable.getModel();
             
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length ; i++){
-                String[] line = lines[i].toString().trim().split("\n");
-                model.addRow(line);
+            if(lines.length <= 30){
+                for(int i = 0; i < lines.length ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
+            }else if(lines.length > 30 && lines.length <= 60){
+                for(int i = 0; i < 30 ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void thirdFile(){
-        File file = new File("gate3.txt");
+        File file = new File("gate2.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             DefaultTableModel model = (DefaultTableModel) thirdTable.getModel();
             
             Object[] lines = br.lines().toArray();
             
-            for(int i = 0; i < lines.length ; i++){
-                String[] line = lines[i].toString().trim().split("\n");
-                model.addRow(line);
+            if(lines.length <= 60){
+                for(int i = 29; i < lines.length ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
+            }else if(lines.length > 60 && lines.length <= 90){
+                for(int i = 29; i < 60 ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void forthFile(){
-        File file = new File("gate4.txt");
+        File file = new File("gate2.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             DefaultTableModel model = (DefaultTableModel) forthTable.getModel();
             
             Object[] lines = br.lines().toArray();
             
-            for(int i = 0; i < lines.length ; i++){
-                String[] line = lines[i].toString().trim().split("\n");
-                model.addRow(line);
+            if(lines.length <= 90){
+                for(int i = 59; i < lines.length ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
+            }else if(lines.length > 90 && lines.length <= 120){
+                for(int i = 59; i < 90 ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void fifthFile(){
-        File file = new File("gate5.txt");
+        File file = new File("gate2.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             DefaultTableModel model = (DefaultTableModel) fifthTable.getModel();
             
             Object[] lines = br.lines().toArray();
             
-            for(int i = 0; i < lines.length ; i++){
-                String[] line = lines[i].toString().trim().split("\n");
-                model.addRow(line);
+            if(lines.length <= 120){
+                for(int i = 59; i < lines.length ; i++){
+                    String[] line = lines[i].toString().trim().split("\n");
+                    model.addRow(line);
+                }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(dashboard.class.getName()).log(Level.SEVERE, null, ex);
@@ -1193,7 +1218,7 @@ public class dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Gate 2"
+                "Gate 5"
             }
         ) {
             boolean[] canEdit = new boolean [] {
