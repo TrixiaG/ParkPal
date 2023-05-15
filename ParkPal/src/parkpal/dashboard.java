@@ -282,7 +282,7 @@ public class dashboard extends javax.swing.JFrame {
             Object[] lines = br.lines().toArray();
             
             if(lines.length <= 120){
-                for(int i = 59; i < lines.length ; i++){
+                for(int i = 89; i < lines.length ; i++){
                     String[] line = lines[i].toString().trim().split("\n");
                     model.addRow(line);
                 }
